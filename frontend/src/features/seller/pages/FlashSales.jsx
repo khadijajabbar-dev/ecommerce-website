@@ -69,7 +69,7 @@ const FlashSales = () => {
           <>
             <div className="mt-6 flex items-center justify-between gap-4">
               <div>
-                <p className="text-sm font-bold text-[#178f95]">Promotions</p>
+                <p className="text-sm font-bold text-primary">Promotions</p>
                 <h2 className="text-2xl font-extrabold text-[#17233f]">Your Flash Sales</h2>
               </div>
               <Button onClick={() => setMode("create")}>Create Flash Sale</Button>
@@ -82,13 +82,13 @@ const FlashSales = () => {
             )}
 
             {loading ? (
-              <Card className="mt-6 p-8 text-center text-sm font-semibold text-slate-500">
+              <Card className="mt-6 p-8 text-center text-sm font-semibold text-body">
                 Loading...
               </Card>
             ) : sales.length === 0 ? (
-              <Card className="mt-6 border-dashed border-[#178f95]/30 bg-[#f6fbfb] p-8 text-center">
+              <Card className="mt-6 border-dashed border-border-main bg-alt p-8 text-center">
                 <h3 className="text-xl font-extrabold">No flash sales yet</h3>
-                <p className="mt-2 text-sm text-slate-500">
+                <p className="mt-2 text-sm text-body">
                   Drive urgent sales by discounting products for a limited time.
                 </p>
                 <Button className="mt-4" onClick={() => setMode("create")}>
@@ -103,12 +103,12 @@ const FlashSales = () => {
                   const discountPrice = (price * (1 - sale.discountPercent / 100)).toFixed(0);
 
                   return (
-                    <Card key={sale._id} as="article" className="overflow-hidden bg-white flex flex-col justify-between">
+                    <Card key={sale._id} as="article" className="overflow-hidden bg-card flex flex-col justify-between">
                       <div>
                         {sale.product?.imageUrl ? (
                           <img src={sale.product.imageUrl} alt={sale.product.title} className="h-40 w-full object-cover" />
                         ) : (
-                          <div className="flex h-40 w-full items-center justify-center bg-[#dff3f2] text-sm font-bold text-[#178f95]">
+                          <div className="flex h-40 w-full items-center justify-center bg-alt text-sm font-bold text-primary">
                             No Image
                           </div>
                         )}
@@ -118,7 +118,7 @@ const FlashSales = () => {
                             <Badge variant={status.variant} size="xs">
                               {status.label}
                             </Badge>
-                            <span className="text-xs font-bold text-[#0f766e] bg-[#eefaf9] px-2 py-0.5 rounded">
+                            <span className="text-xs font-bold text-primary bg-alt px-2 py-0.5 rounded">
                               {sale.discountPercent}% OFF
                             </span>
                           </div>
@@ -128,22 +128,22 @@ const FlashSales = () => {
                           </h4>
 
                           <div className="mt-3 flex items-baseline gap-2">
-                            <span className="text-lg font-black text-[#0f766e]">Rs. {discountPrice}</span>
-                            <span className="text-sm font-semibold text-slate-400 line-through">Rs. {price}</span>
+                            <span className="text-lg font-black text-primary">Rs. {discountPrice}</span>
+                            <span className="text-sm font-semibold text-muted line-through">Rs. {price}</span>
                           </div>
 
-                          <div className="mt-4 space-y-1.5 border-t border-slate-100 pt-3 text-xs font-semibold text-slate-500">
+                          <div className="mt-4 space-y-1.5 border-t border-border-main pt-3 text-xs font-semibold text-body">
                             <div>
-                              <span className="text-slate-400">Start:</span>{" "}
+                              <span className="text-muted">Start:</span>{" "}
                               {new Date(sale.startDate).toLocaleString()}
                             </div>
                             <div>
-                              <span className="text-slate-400">End:</span>{" "}
+                              <span className="text-muted">End:</span>{" "}
                               {new Date(sale.endDate).toLocaleString()}
                             </div>
                             {sale.quantity !== null && (
                               <div>
-                                <span className="text-slate-400">Limit Quantity:</span>{" "}
+                                <span className="text-muted">Limit Quantity:</span>{" "}
                                 {sale.quantity} units
                               </div>
                             )}

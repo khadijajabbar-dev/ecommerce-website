@@ -93,7 +93,7 @@ const BuyNow = () => {
               ✓
             </div>
             <h2 className="mt-4 text-2xl font-extrabold">Order placed successfully!</h2>
-            <p className="mt-2 text-sm text-slate-500">
+            <p className="mt-2 text-sm text-body">
               The seller has been notified and will process your order soon.
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
@@ -124,7 +124,7 @@ const BuyNow = () => {
         </Button>
 
         {loading ? (
-          <Card className="mt-4 p-8 text-center text-sm font-semibold text-slate-500">
+          <Card className="mt-4 p-8 text-center text-sm font-semibold text-body">
             Loading product...
           </Card>
         ) : loadError ? (
@@ -142,15 +142,15 @@ const BuyNow = () => {
                   className="h-24 w-24 rounded-xl object-cover"
                 />
               ) : (
-                <div className="flex h-24 w-24 items-center justify-center rounded-xl bg-[#dff3f2] text-xs font-bold text-[#178f95]">
+                <div className="flex h-24 w-24 items-center justify-center rounded-xl bg-alt text-xs font-bold text-primary">
                   No Image
                 </div>
               )}
 
               <div className="flex-1">
                 <h3 className="text-lg font-extrabold">{product.title}</h3>
-                <p className="mt-1 text-sm font-bold text-[#178f95]">Rs. {unitPrice}</p>
-                <p className="text-xs font-semibold text-slate-400">
+                <p className="mt-1 text-sm font-bold text-primary">Rs. {unitPrice}</p>
+                <p className="text-xs font-semibold text-muted">
                   {product.stock} in stock
                 </p>
               </div>
@@ -161,7 +161,7 @@ const BuyNow = () => {
                   type="button"
                   onClick={decreaseQuantity}
                   disabled={quantity <= 1}
-                  className="h-10 w-10 rounded-lg border border-slate-200 font-bold hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40"
+                  className="h-10 w-10 rounded-lg border border-border-main font-bold hover:bg-page disabled:cursor-not-allowed disabled:opacity-40"
                 >
                   -
                 </button>
@@ -170,7 +170,7 @@ const BuyNow = () => {
                   type="button"
                   onClick={increaseQuantity}
                   disabled={quantity >= product.stock}
-                  className="h-10 w-10 rounded-lg border border-slate-200 font-bold hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40"
+                  className="h-10 w-10 rounded-lg border border-border-main font-bold hover:bg-page disabled:cursor-not-allowed disabled:opacity-40"
                 >
                   +
                 </button>
@@ -231,9 +231,9 @@ const BuyNow = () => {
                   ))}
                 </Input>
 
-                <div className="flex items-center justify-between rounded-2xl bg-[#f6fbfb] p-4">
+                <div className="flex items-center justify-between rounded-2xl bg-alt p-4">
                   <span className="font-bold">Total Amount</span>
-                  <span className="text-2xl font-black text-[#178f95]">
+                  <span className="text-2xl font-black text-primary">
                     Rs. {totalAmount.toFixed(2)}
                   </span>
                 </div>

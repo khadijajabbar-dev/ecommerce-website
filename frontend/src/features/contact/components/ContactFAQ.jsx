@@ -36,7 +36,7 @@ const ContactFAQ = () => {
           return (
             <article
               key={faq.question}
-              className="rounded-xl border border-[#e5e7eb] bg-white shadow-md shadow-slate-200/45 transition hover:shadow-lg"
+              className="rounded-xl border border-[#e5e7eb] bg-card shadow-md shadow-slate-200/45 transition hover:shadow-lg"
             >
               <button
                 type="button"
@@ -47,7 +47,7 @@ const ContactFAQ = () => {
                 <Icon
                   name="arrowRight"
                   className={`h-4 w-4 shrink-0 text-[#64748b] transition ${
-                    isOpen ? "rotate-90 text-[#178f95]" : ""
+                    isOpen ? "rotate-90 text-primary" : ""
                   }`}
                 />
               </button>

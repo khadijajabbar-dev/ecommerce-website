@@ -34,7 +34,7 @@
 
 
 // const RouteFallback = () => (
-//   <div className="flex min-h-screen items-center justify-center bg-slate-50 text-sm font-semibold text-slate-500">
+//   <div className="flex min-h-screen items-center justify-center bg-page text-sm font-semibold text-body">
 //     Loading page...
 //   </div>
 // );
@@ -241,6 +241,16 @@ const Signup = lazy(() => import("../features/auth/pages/Signup"));
 const Login = lazy(() => import("../features/auth/pages/Login"));
 const VerifyOTP = lazy(() => import("../features/auth/pages/VerifyOTP"));
 
+// Public Static Pages
+const Careers = lazy(() => import("../features/public/pages/Careers"));
+const Faqs = lazy(() => import("../features/public/pages/Faqs"));
+const ReturnPolicy = lazy(() => import("../features/public/pages/ReturnPolicy"));
+const ShippingInfo = lazy(() => import("../features/public/pages/ShippingInfo"));
+const SellerResources = lazy(() => import("../features/public/pages/SellerResources"));
+const TermsConditions = lazy(() => import("../features/public/pages/TermsConditions"));
+const PrivacyPolicy = lazy(() => import("../features/public/pages/PrivacyPolicy"));
+const CookiePolicy = lazy(() => import("../features/public/pages/CookiePolicy"));
+
 const SellerDashboard = lazy(() => import("../features/seller/pages/SellerDashboard"));
 const AddProduct = lazy(() => import("../features/seller/pages/AddProduct"));
 const EditProduct = lazy(() => import("../features/seller/pages/EditProduct"));
@@ -260,7 +270,7 @@ const ConfirmOrder = lazy(() => import("../features/buyer/pages/ConfirmOrder"));
 const TrackOrder = lazy(() => import("../features/buyer/pages/TrackOrder"));
 
 const RouteFallback = () => (
-  <div className="flex min-h-screen items-center justify-center bg-slate-50 text-sm font-semibold text-slate-500">
+  <div className="flex min-h-screen items-center justify-center bg-page text-sm font-semibold text-body">
     Loading page...
   </div>
 );
@@ -278,6 +288,14 @@ const AppRoutes = () => {
         <Route path="/blog" element={<BlogList />} />
         <Route path="/blog/:slug" element={<BlogDetail />} />
         <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/careers" element={<Careers />} />
+        <Route path="/faqs" element={<Faqs />} />
+        <Route path="/return-policy" element={<ReturnPolicy />} />
+        <Route path="/shipping-info" element={<ShippingInfo />} />
+        <Route path="/seller-resources" element={<SellerResources />} />
+        <Route path="/terms-conditions" element={<TermsConditions />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/cookie-policy" element={<CookiePolicy />} />
 
         <Route
           path="/signup"

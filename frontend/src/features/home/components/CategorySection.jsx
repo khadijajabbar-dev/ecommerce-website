@@ -4,38 +4,36 @@ import { CATEGORIES } from "../../../shared/constants/categories";
 
 const CategorySection = () => {
   return (
-    <section id="categories" className="mx-auto w-full max-w-7xl px-4 pt-8 sm:px-6 lg:px-8">
-      <div className="mb-4 flex items-center justify-between gap-4">
-        <div>
-          <p className="text-sm font-bold text-teal-700">Browse Easy Mart</p>
-          <h2 className="text-2xl font-black tracking-normal text-slate-900">Shop by Category</h2>
-        </div>
+    <section className="bg-card rounded-xl border border-border-main p-5 sticky top-24">
+      <div className="flex items-center justify-between mb-4">
+        <h2 className="text-[17px] font-bold text-heading">Top Categories</h2>
         <Link
           to="/marketplace"
-          className="hidden items-center gap-2 text-sm font-extrabold text-teal-700 transition hover:text-teal-800 sm:inline-flex"
+          className="text-[13px] font-semibold text-primary hover:text-primary"
         >
-          View all categories
-          <Icon name="arrowRight" className="h-4 w-4" />
+          View all
         </Link>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {CATEGORIES.map((category) => (
+      <div className="flex flex-col space-y-1">
+        {CATEGORIES.slice(0, 10).map((category) => (
           <Link
             to={`/marketplace?category=${category.value}`}
             key={category.value}
-            className="group flex min-h-28 items-center gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-lg shadow-slate-200/50 transition hover:-translate-y-1 hover:border-teal-200 hover:shadow-xl hover:shadow-teal-900/5"
+            className="group flex items-center justify-between p-2 rounded-lg hover:bg-page transition"
           >
-            <span className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl ${category.color}`}>
-              <Icon name={category.icon} className="h-7 w-7" />
-            </span>
-            <span className="min-w-0 flex-1">
-              <h3 className="font-black text-slate-900">{category.label}</h3>
-              <p className="mt-1 text-sm leading-6 text-slate-500">{category.description}</p>
-            </span>
+            <div className="flex items-center gap-3">
+              <span className="flex h-8 w-8 items-center justify-center rounded-md bg-page text-body group-hover:bg-alt group-hover:text-primary transition">
+                <Icon name={category.icon} className="h-4 w-4" />
+              </span>
+              <span className="text-[14px] font-medium text-gray-700 group-hover:text-primary">
+                {category.label}
+              </span>
+            </div>
+            {/* We might not have chevronRight in icons, let's use arrowRight if it fails, but I will assume we can use arrowRight styled smaller */}
             <Icon
-              name="arrowRight"
-              className="h-5 w-5 shrink-0 text-slate-400 transition group-hover:translate-x-1 group-hover:text-teal-700"
+              name="arrowRight" 
+              className="h-3 w-3 text-muted opacity-0 group-hover:opacity-100 transition"
             />
           </Link>
         ))}

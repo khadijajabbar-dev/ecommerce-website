@@ -71,10 +71,10 @@ const NewsletterSection = () => {
         {/* Left Side: Latest from Blog */}
         <div>
           <div className="mb-6 flex items-center justify-between gap-4">
-            <h2 className="text-2xl font-black tracking-normal text-slate-900">Latest from Blog</h2>
+            <h2 className="text-2xl font-black tracking-normal text-heading">Latest from Blog</h2>
             <Link
               to="/blog"
-              className="text-sm font-extrabold text-teal-700 transition hover:text-teal-800"
+              className="text-sm font-extrabold text-primary transition hover:text-primary"
             >
               View All
             </Link>
@@ -85,11 +85,11 @@ const NewsletterSection = () => {
               <Card
                 key={blog._id}
                 as="article"
-                className="overflow-hidden bg-white p-2 hover:shadow-lg transition-all duration-300 flex flex-col"
+                className="overflow-hidden bg-card p-2 hover:shadow-lg transition-all duration-300 flex flex-col"
               >
                 <Link
                   to={`/blog/${blog.slug}`}
-                  className="block aspect-[16/10] overflow-hidden rounded-xl bg-slate-50"
+                  className="block aspect-[16/10] overflow-hidden rounded-xl bg-page"
                 >
                   {blog.coverImage ? (
                     <img
@@ -98,7 +98,7 @@ const NewsletterSection = () => {
                       className="h-full w-full object-cover transition duration-300 hover:scale-105"
                     />
                   ) : (
-                    <div className="flex h-full w-full items-center justify-center bg-[#dff3f2] text-sm font-bold text-[#178f95]">
+                    <div className="flex h-full w-full items-center justify-center bg-alt text-sm font-bold text-primary">
                       No Image
                     </div>
                   )}
@@ -106,11 +106,11 @@ const NewsletterSection = () => {
                 <div className="mt-3 px-1 pb-1 flex-1 flex flex-col justify-between">
                   <Link
                     to={`/blog/${blog.slug}`}
-                    className="block font-bold text-slate-900 hover:text-teal-700 transition line-clamp-2 text-sm leading-tight"
+                    className="block font-bold text-heading hover:text-primary transition line-clamp-2 text-sm leading-tight"
                   >
                     {blog.title}
                   </Link>
-                  <p className="mt-2 text-[11px] font-semibold text-slate-400">
+                  <p className="mt-2 text-[11px] font-semibold text-muted">
                     {new Date(blog.createdAt).toLocaleDateString("en-US", {
                       month: "long",
                       day: "numeric",
@@ -125,40 +125,40 @@ const NewsletterSection = () => {
         </div>
 
         {/* Right Side: Subscribe to Our Newsletter */}
-        <div className="flex flex-col justify-between rounded-3xl bg-[#eefaf9] p-6 sm:p-8 relative overflow-hidden shadow-sm">
+        <div className="flex flex-col justify-between rounded-3xl bg-alt p-6 sm:p-8 relative overflow-hidden shadow-sm">
           {/* Background circles */}
-          <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-[#dff3f2] opacity-50 blur-xl" />
+          <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-alt opacity-50 blur-xl" />
 
           <div className="relative z-10 flex flex-col justify-between h-full gap-6">
             <div>
-              <h3 className="text-xl font-black text-slate-900">Subscribe to Our Newsletter</h3>
-              <p className="mt-2 text-sm font-semibold text-slate-500 max-w-sm">
+              <h3 className="text-xl font-black text-heading">Subscribe to Our Newsletter</h3>
+              <p className="mt-2 text-sm font-semibold text-body max-w-sm">
                 Get the latest updates on new products and upcoming sales
               </p>
             </div>
 
             {subscribed ? (
-              <div className="rounded-2xl bg-white p-4 text-center border border-teal-100 shadow-sm">
+              <div className="rounded-2xl bg-card p-4 text-center border border-border-main shadow-sm">
                 <span className="text-2xl">🎉</span>
-                <h4 className="mt-2 font-bold text-teal-800">Thanks for subscribing!</h4>
-                <p className="mt-1 text-xs font-semibold text-slate-400">
+                <h4 className="mt-2 font-bold text-primary">Thanks for subscribing!</h4>
+                <p className="mt-1 text-xs font-semibold text-muted">
                   We'll keep you updated with the best deals.
                 </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="relative mt-2">
-                <div className="flex items-center rounded-2xl border border-slate-200/60 bg-white p-1.5 shadow-sm focus-within:border-teal-600 transition">
+                <div className="flex items-center rounded-2xl border border-border-main/60 bg-card p-1.5 shadow-sm focus-within:border-primary transition">
                   <input
                     type="email"
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="Enter your email address"
-                    className="w-full bg-transparent px-3 text-sm font-medium text-slate-800 outline-none placeholder:text-slate-400"
+                    className="w-full bg-transparent px-3 text-sm font-medium text-heading outline-none placeholder:text-muted"
                   />
                   <button
                     type="submit"
-                    className="h-10 shrink-0 rounded-xl bg-[#0f766e] px-5 text-xs font-bold text-white shadow-md shadow-[#0f766e]/20 hover:bg-[#115e59] transition"
+                    className="h-10 shrink-0 rounded-xl bg-primary px-5 text-xs font-bold text-white shadow-md shadow-primary/20 hover:bg-primary transition"
                   >
                     Subscribe
                   </button>
@@ -167,7 +167,7 @@ const NewsletterSection = () => {
             )}
 
             <div className="flex items-end justify-between gap-4 mt-auto">
-              <span className="text-xs font-semibold text-slate-400">
+              <span className="text-xs font-semibold text-muted">
                 We respect your privacy. Unsubscribe anytime.
               </span>
               

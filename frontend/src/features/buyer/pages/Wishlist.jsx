@@ -60,8 +60,8 @@
 
 //       <section className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
 //         <div className="mb-6">
-//           <h1 className="text-3xl font-black text-slate-900">My Wishlist</h1>
-//           <p className="mt-1 text-sm text-slate-500">
+//           <h1 className="text-3xl font-black text-heading">My Wishlist</h1>
+//           <p className="mt-1 text-sm text-body">
 //             View and manage the products you've saved.
 //           </p>
 //         </div>
@@ -79,13 +79,13 @@
 //         )}
 
 //         {loading ? (
-//           <Card className="p-8 text-center text-sm font-semibold text-slate-500">
+//           <Card className="p-8 text-center text-sm font-semibold text-body">
 //             Loading your wishlist...
 //           </Card>
 //         ) : wishlist.length === 0 ? (
-//           <Card className="border-dashed border-[#178f95]/30 bg-[#f6fbfb] p-8 text-center">
+//           <Card className="border-dashed border-primary/30 bg-alt p-8 text-center">
 //             <h3 className="text-xl font-extrabold">Your wishlist is empty</h3>
-//             <p className="mt-2 text-sm text-slate-500">
+//             <p className="mt-2 text-sm text-body">
 //               Browse products and tap the heart icon to save them here.
 //             </p>
 //             <Button className="mt-4" onClick={() => navigate("/marketplace")}>
@@ -95,20 +95,20 @@
 //         ) : (
 //           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 //             {wishlist.map((product) => (
-//               <Card key={product._id} className="overflow-hidden bg-white flex flex-col justify-between p-4">
+//               <Card key={product._id} className="overflow-hidden bg-card flex flex-col justify-between p-4">
 //                 <div>
-//                   <Link to={`/product/${product._id}`} className="block aspect-square overflow-hidden rounded-2xl bg-slate-50">
-//                     <ProductImageCard product={product} fallbackIconClassName="h-12 w-12 text-[#178f95]/40" />
+//                   <Link to={`/product/${product._id}`} className="block aspect-square overflow-hidden rounded-2xl bg-page">
+//                     <ProductImageCard product={product} fallbackIconClassName="h-12 w-12 text-primary/40" />
 //                   </Link>
 
 //                   <div className="mt-4">
 //                     <Link
 //                       to={`/product/${product._id}`}
-//                       className="block font-bold text-slate-900 hover:text-teal-700 transition line-clamp-2 text-sm"
+//                       className="block font-bold text-heading hover:text-primary transition line-clamp-2 text-sm"
 //                     >
 //                       {product.title}
 //                     </Link>
-//                     <p className="mt-1.5 text-base font-black text-[#0f766e]">
+//                     <p className="mt-1.5 text-base font-black text-primary">
 //                       Rs. {product.discountPrice || product.price}
 //                     </p>
 //                   </div>
@@ -196,8 +196,8 @@ const Wishlist = () => {
 
       <section className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="mb-6">
-          <h1 className="text-3xl font-black text-slate-900">My Wishlist</h1>
-          <p className="mt-1 text-sm text-slate-500">
+          <h1 className="text-3xl font-black text-heading">My Wishlist</h1>
+          <p className="mt-1 text-sm text-body">
             View and manage the products you've saved.
           </p>
         </div>
@@ -215,13 +215,13 @@ const Wishlist = () => {
         )}
 
         {loading ? (
-          <Card className="p-8 text-center text-sm font-semibold text-slate-500">
+          <Card className="p-8 text-center text-sm font-semibold text-body">
             Loading your wishlist...
           </Card>
         ) : wishlist.length === 0 ? (
-          <Card className="border-dashed border-[#178f95]/30 bg-[#f6fbfb] p-8 text-center">
+          <Card className="border-dashed border-primary/30 bg-alt p-8 text-center">
             <h3 className="text-xl font-extrabold">Your wishlist is empty</h3>
-            <p className="mt-2 text-sm text-slate-500">
+            <p className="mt-2 text-sm text-body">
               Browse products and tap the heart icon to save them here.
             </p>
             <Button className="mt-4" onClick={() => navigate("/marketplace")}>
@@ -231,20 +231,20 @@ const Wishlist = () => {
         ) : (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {wishlist.map((product) => (
-              <Card key={product._id} className="overflow-hidden bg-white flex flex-col justify-between p-4">
+              <Card key={product._id} className="overflow-hidden bg-card flex flex-col justify-between p-4">
                 <div>
-                  <Link to={`/product/${product._id}`} className="block aspect-square overflow-hidden rounded-2xl bg-slate-50">
-                    <ProductImageCard product={product} fallbackIconClassName="h-12 w-12 text-[#178f95]/40" />
+                  <Link to={`/product/${product._id}`} className="block aspect-square overflow-hidden rounded-2xl bg-page">
+                    <ProductImageCard product={product} fallbackIconClassName="h-12 w-12 text-primary/40" />
                   </Link>
 
                   <div className="mt-4">
                     <Link
                       to={`/product/${product._id}`}
-                      className="block font-bold text-slate-900 hover:text-teal-700 transition line-clamp-2 text-sm"
+                      className="block font-bold text-heading hover:text-primary transition line-clamp-2 text-sm"
                     >
                       {product.title}
                     </Link>
-                    <p className="mt-1.5 text-base font-black text-[#0f766e]">
+                    <p className="mt-1.5 text-base font-black text-primary">
                       Rs. {product.discountPrice || product.price}
                     </p>
                   </div>

@@ -102,7 +102,7 @@ const Cart = () => {
               ✓
             </div>
             <h2 className="mt-4 text-2xl font-extrabold">Order placed successfully!</h2>
-            <p className="mt-2 text-sm text-slate-500">
+            <p className="mt-2 text-sm text-body">
               Every item in your cart has been ordered. Sellers will process them soon.
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
@@ -131,13 +131,13 @@ const Cart = () => {
         )}
 
         {loading ? (
-          <Card className="mt-6 p-8 text-center text-sm font-semibold text-slate-500">
+          <Card className="mt-6 p-8 text-center text-sm font-semibold text-body">
             Loading...
           </Card>
         ) : cart.length === 0 ? (
-            <Card className="mt-6 border-dashed border-[#178f95]/30 bg-[#f6fbfb] p-8 text-center">
+            <Card className="mt-6 border-dashed border-primary/30 bg-alt p-8 text-center">
               <h3 className="text-xl font-extrabold">Your cart is empty</h3>
-              <p className="mt-2 text-sm text-slate-500">
+              <p className="mt-2 text-sm text-body">
                 Browse the marketplace and add products you like.
               </p>
               <Link to="/buyer-dashboard">
@@ -151,13 +151,13 @@ const Cart = () => {
                   <img
                     src={item.product.imageUrl || ""}
                     alt={item.product.title}
-                    className="h-20 w-20 rounded-xl object-cover bg-[#dff3f2]"
+                    className="h-20 w-20 rounded-xl object-cover bg-alt"
                   />
                   <div className="flex-1">
                     <Link to={`/product/${item.product._id}`} className="font-extrabold hover:underline">
                       {item.product.title}
                     </Link>
-                    <p className="mt-1 text-sm font-bold text-[#178f95]">
+                    <p className="mt-1 text-sm font-bold text-primary">
                       Rs. {item.product.discountPrice || item.product.price}
                     </p>
                   </div>
@@ -167,7 +167,7 @@ const Cart = () => {
                       type="button"
                       onClick={() => handleQuantityChange(item.product._id, item.quantity - 1)}
                       disabled={item.quantity <= 1}
-                      className="h-9 w-9 rounded-lg border border-slate-200 font-bold hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40"
+                      className="h-9 w-9 rounded-lg border border-border-main font-bold hover:bg-page disabled:cursor-not-allowed disabled:opacity-40"
                     >
                       -
                     </button>
@@ -175,7 +175,7 @@ const Cart = () => {
                     <button
                       type="button"
                       onClick={() => handleQuantityChange(item.product._id, item.quantity + 1)}
-                      className="h-9 w-9 rounded-lg border border-slate-200 font-bold hover:bg-slate-50"
+                      className="h-9 w-9 rounded-lg border border-border-main font-bold hover:bg-page"
                     >
                       +
                     </button>
@@ -192,7 +192,7 @@ const Cart = () => {
 
               <Card className="flex items-center justify-between p-5">
                 <span className="text-lg font-extrabold">Total</span>
-                <span className="text-2xl font-black text-[#178f95]">
+                <span className="text-2xl font-black text-primary">
                   Rs. {cartTotal.toFixed(2)}
                 </span>
               </Card>

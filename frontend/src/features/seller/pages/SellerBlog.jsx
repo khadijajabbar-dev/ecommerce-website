@@ -57,7 +57,7 @@ const SellerBlog = () => {
           <>
             <div className="mt-6 flex items-center justify-between gap-4">
               <div>
-                <p className="text-sm font-bold text-[#178f95]">Content</p>
+                <p className="text-sm font-bold text-primary">Content</p>
                 <h2 className="text-2xl font-extrabold text-[#17233f]">Your Blog Posts</h2>
               </div>
               <Button onClick={() => setMode("create")}>Write New Post</Button>
@@ -70,13 +70,13 @@ const SellerBlog = () => {
             )}
 
             {loading ? (
-              <Card className="mt-6 p-8 text-center text-sm font-semibold text-slate-500">
+              <Card className="mt-6 p-8 text-center text-sm font-semibold text-body">
                 Loading...
               </Card>
             ) : blogs.length === 0 ? (
-              <Card className="mt-6 border-dashed border-[#178f95]/30 bg-[#f6fbfb] p-8 text-center">
+              <Card className="mt-6 border-dashed border-border-main bg-alt p-8 text-center">
                 <h3 className="text-xl font-extrabold">No posts yet</h3>
-                <p className="mt-2 text-sm text-slate-500">
+                <p className="mt-2 text-sm text-body">
                   Share updates, guides, or announcements with your shoppers.
                 </p>
                 <Button className="mt-4" onClick={() => setMode("create")}>
@@ -86,11 +86,11 @@ const SellerBlog = () => {
             ) : (
               <div className="mt-6 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
                 {blogs.map((blog) => (
-                  <Card key={blog._id} as="article" className="overflow-hidden bg-white">
+                  <Card key={blog._id} as="article" className="overflow-hidden bg-card">
                     {blog.coverImage ? (
                       <img src={blog.coverImage} alt={blog.title} className="h-40 w-full object-cover" />
                     ) : (
-                      <div className="flex h-40 w-full items-center justify-center bg-[#dff3f2] text-sm font-bold text-[#178f95]">
+                      <div className="flex h-40 w-full items-center justify-center bg-alt text-sm font-bold text-primary">
                         No Cover Image
                       </div>
                     )}
@@ -99,7 +99,7 @@ const SellerBlog = () => {
                       <span
                         className={`rounded-full px-3 py-1 text-xs font-bold ${
                           blog.isPublished
-                            ? "bg-[#dff3f2] text-[#178f95]"
+                            ? "bg-alt text-primary"
                             : "bg-[#fff0e8] text-[#17233f]"
                         }`}
                       >
@@ -111,7 +111,7 @@ const SellerBlog = () => {
                       </h4>
 
                       {blog.excerpt && (
-                        <p className="mt-2 line-clamp-2 text-sm text-slate-500">{blog.excerpt}</p>
+                        <p className="mt-2 line-clamp-2 text-sm text-body">{blog.excerpt}</p>
                       )}
 
                       <div className="mt-5 flex gap-2">

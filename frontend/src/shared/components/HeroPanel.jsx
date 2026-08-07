@@ -1,7 +1,7 @@
 const HeroPanel = ({ eyebrow, title, description, children, className = "" }) => {
   return (
     <div
-      className={`rounded-[30px] bg-gradient-to-br from-[#178f95] to-[#12757a] p-8 text-white shadow-xl shadow-[#178f95]/15 ${className}`}
+      className={`rounded-[30px] bg-primary p-8 text-white shadow-xl shadow-primary/20 ${className}`}
     >
       {eyebrow && (
         <p className="text-sm font-bold uppercase tracking-[0.25em] text-white/70">

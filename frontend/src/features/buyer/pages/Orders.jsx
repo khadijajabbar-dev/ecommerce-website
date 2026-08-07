@@ -6,11 +6,11 @@ import buyerOrderService from "../services/order.service";
 import { Alert, Button, Card, Navbar } from "../../../shared/components";
 
 const STATUS_STYLES = {
-  pending: "bg-amber-50 text-amber-700",
-  processing: "bg-blue-50 text-blue-700",
+  pending: "bg-orange-50 text-orange-600",
+  processing: "bg-alt text-primary",
   shipped: "bg-indigo-50 text-indigo-700",
-  delivered: "bg-emerald-50 text-emerald-700",
-  cancelled: "bg-red-50 text-red-700",
+  delivered: "bg-green-50 text-green-600",
+  cancelled: "bg-red-50 text-red-600",
 };
 
 const Orders = () => {
@@ -47,13 +47,13 @@ const Orders = () => {
         )}
 
         {loading ? (
-          <Card className="mt-6 p-8 text-center text-sm font-semibold text-slate-500">
+          <Card className="mt-6 p-8 text-center text-sm font-semibold text-body">
             Loading orders...
           </Card>
         ) : orders.length === 0 ? (
-          <Card className="mt-6 border-dashed border-[#178f95]/30 bg-[#f6fbfb] p-8 text-center">
+          <Card className="mt-6 border-dashed border-primary/30 bg-alt p-8 text-center">
             <h3 className="text-xl font-extrabold">No orders yet</h3>
-            <p className="mt-2 text-sm text-slate-500">
+            <p className="mt-2 text-sm text-body">
               Orders you place will show up here.
             </p>
           </Card>
@@ -65,10 +65,10 @@ const Orders = () => {
                   <img
                     src={order.productImage}
                     alt={order.productTitle}
-                    className="h-20 w-20 rounded-xl object-cover bg-[#dff3f2]"
+                    className="h-20 w-20 rounded-xl object-cover bg-alt"
                   />
                 ) : (
-                  <div className="flex h-20 w-20 items-center justify-center rounded-xl bg-[#dff3f2] text-xs font-bold text-[#178f95]">
+                  <div className="flex h-20 w-20 items-center justify-center rounded-xl bg-alt text-xs font-bold text-primary">
                     No Image
                   </div>
                 )}
@@ -78,19 +78,19 @@ const Orders = () => {
                     <h4 className="font-extrabold">{order.productTitle}</h4>
                     <span
                       className={`rounded-full px-3 py-1 text-xs font-bold capitalize ${
-                        STATUS_STYLES[order.status] || "bg-slate-100 text-slate-600"
+                        STATUS_STYLES[order.status] || "bg-alt text-body"
                       }`}
                     >
                       {order.status}
                     </span>
                   </div>
 
-                  <p className="mt-1 text-sm text-slate-500">
+                  <p className="mt-1 text-sm text-body">
                     Qty: <span className="font-bold text-[#17233f]">{order.quantity}</span> ·
-                    Total: <span className="font-bold text-[#178f95]">Rs. {order.totalAmount}</span>
+                    Total: <span className="font-bold text-primary">Rs. {order.totalAmount}</span>
                   </p>
 
-                  <p className="mt-2 text-xs font-semibold text-slate-400">
+                  <p className="mt-2 text-xs font-semibold text-muted">
                     Ordered on {new Date(order.createdAt).toLocaleDateString()}
                   </p>
 

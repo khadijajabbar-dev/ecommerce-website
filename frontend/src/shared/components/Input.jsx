@@ -29,8 +29,8 @@ const Input = forwardRef(
         )}
         <Component
           ref={ref}
-          className={`${isTextarea ? "w-full px-4 py-3" : "h-[52px] w-full px-4"} rounded-xl border bg-white text-sm text-[#17233f] outline-none transition placeholder:text-slate-400 focus:border-[#178f95] focus:ring-4 focus:ring-[#178f95]/10 ${
-            error ? "border-red-300 bg-red-50/40" : "border-slate-200"
+          className={`${isTextarea ? "w-full px-4 py-3" : "h-[52px] w-full px-4"} rounded-xl border bg-card text-sm text-[#17233f] outline-none transition placeholder:text-muted focus:border-primary focus:ring-4 focus:ring-primary/10 ${
+            error ? "border-red-300 bg-red-50/40" : "border-border-main"
           } ${inputClassName} ${className}`}
           {...props}
         >

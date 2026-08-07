@@ -45,18 +45,18 @@ const EditableField = ({
 
   if (!editing) {
     return (
-      <div className="flex items-center justify-between gap-4 rounded-2xl bg-[#f6fbfb] px-4 py-3">
+      <div className="flex items-center justify-between gap-4 rounded-2xl bg-alt px-4 py-3">
         <div className="min-w-0">
-          <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate-400">{label}</p>
+          <p className="text-xs font-bold uppercase tracking-[0.14em] text-muted">{label}</p>
           <p className="mt-0.5 truncate text-sm font-black text-[#17233f]">
-            {value || <span className="font-medium text-slate-400">Not set</span>}
+            {value || <span className="font-medium text-muted">Not set</span>}
           </p>
         </div>
         <button
           type="button"
           onClick={startEditing}
           aria-label={`Edit ${label}`}
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-[#178f95] transition hover:bg-[#dff3f2]"
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-primary transition hover:bg-alt"
         >
           <Icon name="edit" className="h-4 w-4" />
         </button>
@@ -65,8 +65,8 @@ const EditableField = ({
   }
 
   return (
-    <div className="rounded-2xl border border-[#178f95]/30 bg-white px-4 py-3">
-      <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate-400">{label}</p>
+    <div className="rounded-2xl border border-primary/30 bg-card px-4 py-3">
+      <p className="text-xs font-bold uppercase tracking-[0.14em] text-muted">{label}</p>
 
       <div className="mt-2 flex items-start gap-2">
         {as === "textarea" ? (
@@ -75,14 +75,14 @@ const EditableField = ({
             onChange={(e) => setDraft(e.target.value)}
             rows={3}
             placeholder={placeholder}
-            className="flex-1 rounded-xl border border-slate-200 px-3 py-2 text-sm font-semibold text-[#17233f] outline-none focus:border-[#178f95]"
+            className="flex-1 rounded-xl border border-border-main px-3 py-2 text-sm font-semibold text-[#17233f] outline-none focus:border-primary"
             autoFocus
           />
         ) : as === "select" ? (
           <select
             value={draft}
             onChange={(e) => setDraft(e.target.value)}
-            className="flex-1 rounded-xl border border-slate-200 px-3 py-2 text-sm font-semibold text-[#17233f] outline-none focus:border-[#178f95]"
+            className="flex-1 rounded-xl border border-border-main px-3 py-2 text-sm font-semibold text-[#17233f] outline-none focus:border-primary"
             autoFocus
           >
             {options.map((option) => (
@@ -97,7 +97,7 @@ const EditableField = ({
             value={draft}
             onChange={(e) => setDraft(e.target.value)}
             placeholder={placeholder}
-            className="flex-1 rounded-xl border border-slate-200 px-3 py-2 text-sm font-semibold text-[#17233f] outline-none focus:border-[#178f95]"
+            className="flex-1 rounded-xl border border-border-main px-3 py-2 text-sm font-semibold text-[#17233f] outline-none focus:border-primary"
             autoFocus
           />
         )}
@@ -107,7 +107,7 @@ const EditableField = ({
           onClick={handleSave}
           disabled={saving}
           aria-label="Save"
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#178f95] text-white transition hover:bg-[#12757a] disabled:opacity-50"
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary text-white transition hover:bg-primary disabled:opacity-50"
         >
           <Icon name="check" className="h-4 w-4" />
         </button>
@@ -116,7 +116,7 @@ const EditableField = ({
           onClick={cancelEditing}
           disabled={saving}
           aria-label="Cancel"
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-slate-200 text-slate-500 transition hover:bg-slate-50 disabled:opacity-50"
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-border-main text-body transition hover:bg-page disabled:opacity-50"
         >
           <Icon name="close" className="h-4 w-4" />
         </button>

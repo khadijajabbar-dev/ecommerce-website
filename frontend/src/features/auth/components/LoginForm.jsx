@@ -91,7 +91,7 @@ const LoginForm = () => {
             variant="ghost"
             size="sm"
             onClick={() => setShowPassword((prev) => !prev)}
-            className="absolute right-3 top-6 h-auto border-0 px-2 py-1 text-xs text-[#178f95] shadow-none hover:bg-[#dff3f2]"
+            className="absolute right-3 top-6 h-auto border-0 px-2 py-1 text-xs text-primary shadow-none hover:bg-alt"
           >
             {showPassword ? "Hide" : "Show"}
           </Button>
@@ -103,9 +103,9 @@ const LoginForm = () => {
         <span className="transition-transform duration-300 group-hover:translate-x-1">-&gt;</span>
       </Button>
 
-      <p className="text-center text-sm text-slate-500">
+      <p className="text-center text-sm text-body">
         Don&apos;t have an account?{" "}
-        <Link to="/signup" className="font-bold text-[#178f95] hover:underline">
+        <Link to="/signup" className="font-bold text-primary hover:underline">
           Create account
         </Link>
       </p>

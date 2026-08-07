@@ -9,7 +9,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange, className = "" }) =
         type="button"
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="h-10 rounded-xl border border-slate-200 bg-white px-4 text-sm font-bold text-[#178f95] transition hover:bg-[#f6fbfb] disabled:cursor-not-allowed disabled:opacity-40"
+        className="h-10 rounded-xl border border-border-main bg-card px-4 text-sm font-bold text-primary transition hover:bg-alt disabled:cursor-not-allowed disabled:opacity-40"
       >
         Prev
       </button>
@@ -21,8 +21,8 @@ const Pagination = ({ currentPage, totalPages, onPageChange, className = "" }) =
           onClick={() => onPageChange(page)}
           className={`h-10 w-10 rounded-xl text-sm font-bold transition ${
             page === currentPage
-              ? "bg-[#178f95] text-white shadow-lg shadow-[#178f95]/20"
-              : "border border-slate-200 bg-white text-[#17233f] hover:bg-[#f6fbfb]"
+              ? "bg-primary text-white shadow-lg shadow-primary/20"
+              : "border border-border-main bg-card text-[#17233f] hover:bg-alt"
           }`}
         >
           {page}
@@ -33,7 +33,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange, className = "" }) =
         type="button"
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="h-10 rounded-xl border border-slate-200 bg-white px-4 text-sm font-bold text-[#178f95] transition hover:bg-[#f6fbfb] disabled:cursor-not-allowed disabled:opacity-40"
+        className="h-10 rounded-xl border border-border-main bg-card px-4 text-sm font-bold text-primary transition hover:bg-alt disabled:cursor-not-allowed disabled:opacity-40"
       >
         Next
       </button>

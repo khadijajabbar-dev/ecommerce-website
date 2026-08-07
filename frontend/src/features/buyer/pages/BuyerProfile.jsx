@@ -79,7 +79,7 @@ const BuyerProfile = () => {
     : "B";
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-teal-50/30 text-slate-900">
+    <main className="min-h-screen bg-page text-heading">
       <PublicNavbar />
       <div className="mx-auto max-w-3xl px-4 py-6 sm:px-5">
         <Navbar
@@ -100,7 +100,7 @@ const BuyerProfile = () => {
         />
 
         {loading ? (
-          <Card className="mt-6 p-8 text-center text-sm font-semibold text-slate-500">
+          <Card className="mt-6 p-8 text-center text-sm font-semibold text-body">
             Loading your profile...
           </Card>
         ) : pageError && !user ? (
@@ -116,20 +116,20 @@ const BuyerProfile = () => {
                     <img
                       src={user.profileImage}
                       alt="Profile"
-                      className="h-28 w-28 rounded-3xl object-cover ring-4 ring-teal-100"
+                      className="h-28 w-28 rounded-3xl object-cover ring-4 ring-blue-100"
                     />
                   ) : (
-                    <div className="flex h-28 w-28 items-center justify-center rounded-3xl bg-gradient-to-br from-teal-700 to-teal-600 text-3xl font-black text-white ring-4 ring-teal-100">
+                    <div className="flex h-28 w-28 items-center justify-center rounded-3xl bg-primary text-3xl font-black text-white ring-4 ring-blue-100">
                       {initials}
                     </div>
                   )}
                 </div>
                 <div className="flex-1 text-center sm:text-left">
-                  <h3 className="text-xl font-extrabold text-slate-900">
+                  <h3 className="text-xl font-extrabold text-heading">
                     {user.firstName} {user.lastName}
                   </h3>
-                  <p className="mt-1 text-sm text-slate-500">{user.email}</p>
-                  <label className="mt-4 inline-flex cursor-pointer items-center justify-center rounded-xl bg-teal-700 px-4 py-2.5 text-sm font-bold text-white transition hover:bg-teal-800">
+                  <p className="mt-1 text-sm text-body">{user.email}</p>
+                  <label className="mt-4 inline-flex cursor-pointer items-center justify-center rounded-xl bg-primary px-4 py-2.5 text-sm font-bold text-white transition hover:bg-primary">
                     {uploadingImage ? "Uploading..." : "Change Profile Photo"}
                     <input
                       type="file"
@@ -149,7 +149,7 @@ const BuyerProfile = () => {
             <Card className="mt-6 p-5 sm:p-6">
               <div className="mb-5">
                 <h3 className="text-xl font-extrabold">Personal Information</h3>
-                <p className="mt-1 text-sm text-slate-500">
+                <p className="mt-1 text-sm text-body">
                   Tap the pencil icon on any field to update it.
                 </p>
               </div>

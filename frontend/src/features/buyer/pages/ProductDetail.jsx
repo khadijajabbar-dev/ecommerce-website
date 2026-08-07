@@ -17,7 +17,7 @@ const ImageSlider = ({ images = [], title = "" }) => {
 
   if (slides.length === 0) {
     return (
-      <div className="flex min-h-[320px] items-center justify-center bg-slate-100 text-slate-400">
+      <div className="flex min-h-[320px] items-center justify-center bg-alt text-muted">
         No image available
       </div>
     );
@@ -27,7 +27,7 @@ const ImageSlider = ({ images = [], title = "" }) => {
   const next = () => setCurrent((c) => (c === slides.length - 1 ? 0 : c + 1));
 
   return (
-    <div className="relative select-none overflow-hidden bg-slate-100">
+    <div className="relative select-none overflow-hidden bg-alt">
       {/* Main image */}
       <img
         key={current}
@@ -42,7 +42,7 @@ const ImageSlider = ({ images = [], title = "" }) => {
             type="button"
             onClick={prev}
             aria-label="Previous image"
-            className="absolute left-3 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-white text-slate-600 shadow-md transition hover:bg-slate-50 hover:text-slate-900"
+            className="absolute left-3 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-card text-body shadow-md transition hover:bg-page hover:text-heading"
           >
             <span className="text-xl font-bold leading-none">‹</span>
           </button>
@@ -50,7 +50,7 @@ const ImageSlider = ({ images = [], title = "" }) => {
             type="button"
             onClick={next}
             aria-label="Next image"
-            className="absolute right-3 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-white text-slate-600 shadow-md transition hover:bg-slate-50 hover:text-slate-900"
+            className="absolute right-3 top-1/2 -translate-y-1/2 flex h-10 w-10 items-center justify-center rounded-full bg-card text-body shadow-md transition hover:bg-page hover:text-heading"
           >
             <span className="text-xl font-bold leading-none">›</span>
           </button>
@@ -68,8 +68,8 @@ const ImageSlider = ({ images = [], title = "" }) => {
               aria-label={`Go to image ${i + 1}`}
               className={`h-2.5 rounded-full shadow transition-all duration-300 ${
                 i === current
-                  ? "w-6 bg-[#0f766e]"
-                  : "w-2.5 bg-white/80 hover:bg-white"
+                  ? "w-6 bg-primary"
+                  : "w-2.5 bg-card/80 hover:bg-card"
               }`}
             />
           ))}
@@ -78,7 +78,7 @@ const ImageSlider = ({ images = [], title = "" }) => {
 
       {/* Thumbnail strip */}
       {slides.length > 1 && (
-        <div className="flex gap-2 overflow-x-auto bg-slate-50 p-3">
+        <div className="flex gap-2 overflow-x-auto bg-page p-3">
           {slides.map((src, i) => (
             <button
               key={i}
@@ -87,7 +87,7 @@ const ImageSlider = ({ images = [], title = "" }) => {
               aria-label={`Thumbnail ${i + 1}`}
               className={`h-16 w-16 flex-shrink-0 overflow-hidden rounded-lg border-2 transition ${
                 i === current
-                  ? "border-teal-600"
+                  ? "border-primary"
                   : "border-transparent opacity-60 hover:opacity-100"
               }`}
             >
@@ -208,21 +208,21 @@ const ProductDetail = () => {
   const price = product?.discountPrice ?? product?.price;
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-teal-50/30 text-slate-900">
+    <main className="min-h-screen bg-page text-heading">
       <PublicNavbar activePage="Marketplace" />
 
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
         <button
           type="button"
           onClick={() => navigate(-1)}
-          className="mb-5 inline-flex items-center gap-2 text-sm font-bold text-teal-700 hover:text-teal-800"
+          className="mb-5 inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-primary"
         >
           <Icon name="arrowRight" className="h-4 w-4 rotate-180" />
           Back
         </button>
 
         {loading && (
-          <Card className="p-10 text-center text-sm font-semibold text-slate-500">
+          <Card className="p-10 text-center text-sm font-semibold text-body">
             Loading product...
           </Card>
         )}
@@ -241,18 +241,18 @@ const ProductDetail = () => {
 
             {/* -- Product info -- */}
             <Card className="p-6 sm:p-8">
-              <span className="inline-flex rounded-full bg-teal-50 px-3 py-1 text-xs font-black text-teal-700">
+              <span className="inline-flex rounded-full bg-alt px-3 py-1 text-xs font-black text-primary">
                 {getCategoryLabel(product.category)}
               </span>
-              <h1 className="mt-4 text-3xl font-black text-slate-900">{product.title}</h1>
-              <p className="mt-3 text-sm leading-7 text-slate-500">
+              <h1 className="mt-4 text-3xl font-black text-heading">{product.title}</h1>
+              <p className="mt-3 text-sm leading-7 text-body">
                 {product.description || "No description provided for this product."}
               </p>
 
               <div className="mt-6 flex flex-wrap items-end gap-3">
-                <span className="text-3xl font-black text-teal-700">Rs. {price}</span>
+                <span className="text-3xl font-black text-primary">Rs. {price}</span>
                 {product.discountPrice != null && product.discountPrice < product.price && (
-                  <span className="text-lg font-semibold text-slate-400 line-through">
+                  <span className="text-lg font-semibold text-muted line-through">
                     Rs. {product.price}
                   </span>
                 )}
@@ -260,18 +260,18 @@ const ProductDetail = () => {
 
               <p className={`mt-3 text-sm font-bold ${product.stock > 0 ? "text-emerald-600" : "text-red-600"}`}>
                 {product.stock > 0 ? `In stock: ${product.stock}` : "Out of stock"}
-                <span className="ml-2 text-xs font-semibold text-slate-400">(live)</span>
+                <span className="ml-2 text-xs font-semibold text-muted">(live)</span>
               </p>
 
               {product.seller?.storeProfile?.storeName && (
-                <p className="mt-2 text-sm font-semibold text-slate-500">
+                <p className="mt-2 text-sm font-semibold text-body">
                   Sold by {product.seller.storeProfile.storeName}
                 </p>
               )}
 
               {/* Brand */}
               {product.brand && (
-                <p className="mt-2 text-sm font-semibold text-slate-500">
+                <p className="mt-2 text-sm font-semibold text-body">
                   Brand: <span className="font-bold text-slate-700">{product.brand}</span>
                 </p>
               )}
@@ -279,15 +279,15 @@ const ProductDetail = () => {
               {/* Colors */}
               {Array.isArray(product.colors) && product.colors.length > 0 && (
                 <div className="mt-3">
-                  <p className="mb-2 text-sm font-semibold text-slate-600">Available Colors</p>
+                  <p className="mb-2 text-sm font-semibold text-body">Available Colors</p>
                   <div className="flex flex-wrap gap-2">
                     {product.colors.map((c) => (
                       <span
                         key={c}
-                        className="flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-bold text-slate-700"
+                        className="flex items-center gap-1.5 rounded-full border border-border-main bg-page px-3 py-1 text-xs font-bold text-slate-700"
                       >
                         <span
-                          className="inline-block h-3 w-3 rounded-full border border-slate-200"
+                          className="inline-block h-3 w-3 rounded-full border border-border-main"
                           style={{ backgroundColor: c.toLowerCase() }}
                         />
                         {c}
@@ -297,7 +297,7 @@ const ProductDetail = () => {
                 </div>
               )}
               {actionMessage && (
-                <p className="mt-4 rounded-xl bg-teal-50 px-4 py-3 text-sm font-semibold text-teal-800">
+                <p className="mt-4 rounded-xl bg-alt px-4 py-3 text-sm font-semibold text-primary">
                   {actionMessage}
                 </p>
               )}
@@ -313,12 +313,12 @@ const ProductDetail = () => {
                   max={Math.max(1, product.stock || 1)}
                   value={quantity}
                   onChange={(e) => setQuantity(Math.max(1, Number(e.target.value) || 1))}
-                  className="h-11 w-28 rounded-xl border border-slate-200 px-3 text-sm font-semibold outline-none focus:border-teal-500"
+                  className="h-11 w-28 rounded-xl border border-border-main px-3 text-sm font-semibold outline-none focus:border-primary"
                 />
               </div>
 
               <div className="mt-6 grid gap-3">
-                <Button size="lg" fullWidth onClick={handleBuyNow} disabled={product.stock <= 0}>
+                <Button size="lg" fullWidth variant="accent" onClick={handleBuyNow} disabled={product.stock <= 0}>
                   {isBuyer ? "Buy Now" : "Login to Buy"}
                 </Button>
                 <Button
@@ -336,7 +336,7 @@ const ProductDetail = () => {
               </div>
 
               {!isBuyer && (
-                <p className="mt-4 text-center text-xs font-semibold text-slate-400">
+                <p className="mt-4 text-center text-xs font-semibold text-muted">
                   Buying, cart and wishlist require a buyer login / signup.
                 </p>
               )}

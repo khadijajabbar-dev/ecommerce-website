@@ -1,7 +1,7 @@
 const Card = ({ children, className = "", as: Component = "div", ...props }) => {
   return (
     <Component
-      className={`rounded-[28px] border border-slate-200 bg-white/90 shadow-sm ${className}`}
+      className={`rounded-[28px] border border-border-main bg-card/90 shadow-sm ${className}`}
       {...props}
     >
       {children}

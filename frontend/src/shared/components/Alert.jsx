@@ -1,7 +1,7 @@
 const variants = {
-  error: "border-red-200 bg-red-50 text-red-700",
-  success: "border-emerald-200 bg-emerald-50 text-emerald-700",
-  info: "border-transparent bg-[#f6fbfb] text-slate-500",
+  error: "border-red-200 bg-red-50 text-red-600",
+  success: "border-emerald-200 bg-green-50 text-green-600",
+  info: "border-transparent bg-alt text-body",
 };
 
 const Alert = ({ children, variant = "info", className = "" }) => {

@@ -36,9 +36,9 @@ const WhyShopWithUs = () => {
         {benefits.map((benefit) => (
           <article
             key={benefit.title}
-            className="rounded-2xl border border-[#e5e7eb] bg-white p-6 shadow-lg shadow-slate-200/55 transition hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200"
+            className="rounded-2xl border border-[#e5e7eb] bg-card p-6 shadow-lg shadow-slate-200/55 transition hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200"
           >
-            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-[#dff3f2] text-[#178f95]">
+            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-alt text-primary">
               <Icon name={benefit.icon} className="h-7 w-7" />
             </span>
             <h3 className="mt-5 text-lg font-black text-[#17233f]">{benefit.title}</h3>

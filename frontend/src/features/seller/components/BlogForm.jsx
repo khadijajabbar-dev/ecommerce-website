@@ -84,7 +84,7 @@ const BlogForm = ({ onSaved, onCancel, initialData }) => {
     <Card className="p-5">
       <div className="mb-5 flex items-start justify-between gap-4">
         <div>
-          <p className="text-sm font-bold text-[#178f95]">{isEditMode ? "Edit post" : "New post"}</p>
+          <p className="text-sm font-bold text-primary">{isEditMode ? "Edit post" : "New post"}</p>
           <h3 className="text-2xl font-extrabold text-[#17233f]">
             {isEditMode ? "Edit Blog Post" : "Write Blog Post"}
           </h3>
@@ -136,13 +136,13 @@ const BlogForm = ({ onSaved, onCancel, initialData }) => {
             type="file"
             accept="image/*"
             onChange={handleImageChange}
-            className="block w-full text-sm text-slate-600 file:mr-4 file:rounded-xl file:border-0 file:bg-[#178f95] file:px-4 file:py-2 file:text-sm file:font-bold file:text-white hover:file:bg-[#12757a]"
+            className="block w-full text-sm text-body file:mr-4 file:rounded-xl file:border-0 file:bg-primary file:px-4 file:py-2 file:text-sm file:font-bold file:text-white hover:file:bg-primary"
           />
 
           <input type="hidden" {...register("coverImage")} />
 
           {uploadingImage && (
-            <p className="mt-2 text-sm font-semibold text-[#178f95]">Uploading image...</p>
+            <p className="mt-2 text-sm font-semibold text-primary">Uploading image...</p>
           )}
 
           {imageError && <p className="mt-2 text-xs font-medium text-red-600">{imageError}</p>}
@@ -154,7 +154,7 @@ const BlogForm = ({ onSaved, onCancel, initialData }) => {
             <img
               src={imagePreview}
               alt="Cover preview"
-              className="mt-3 h-32 w-56 rounded-xl border border-slate-200 object-cover"
+              className="mt-3 h-32 w-56 rounded-xl border border-border-main object-cover"
             />
           )}
 
@@ -162,7 +162,7 @@ const BlogForm = ({ onSaved, onCancel, initialData }) => {
             <img
               src={coverImage}
               alt="Cover preview"
-              className="mt-3 h-32 w-56 rounded-xl border border-slate-200 object-cover"
+              className="mt-3 h-32 w-56 rounded-xl border border-border-main object-cover"
             />
           )}
         </div>

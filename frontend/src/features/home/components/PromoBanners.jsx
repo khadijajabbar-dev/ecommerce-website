@@ -10,7 +10,7 @@ const PROMO_BANNERS = [
     tagColor: "text-[#c65e45]",
     heading: "Check Out The Latest Collection",
     bg: "bg-[#fde8df]",
-    iconBg: "bg-white/70 text-[#c65e45]",
+    iconBg: "bg-card/70 text-[#c65e45]",
     icon: "bag",
     to: "/marketplace",
   },
@@ -19,7 +19,7 @@ const PROMO_BANNERS = [
     tagColor: "text-[#355f99]",
     heading: "Style Starts Here",
     bg: "bg-[#e8f1ff]",
-    iconBg: "bg-white/70 text-[#355f99]",
+    iconBg: "bg-card/70 text-[#355f99]",
     icon: "shirt",
     to: "/marketplace?category=fashion",
   },
@@ -28,7 +28,7 @@ const PROMO_BANNERS = [
     tagColor: "text-[#3f7d3a]",
     heading: "Up To 50% Off On Selected Items",
     bg: "bg-[#eef6e8]",
-    iconBg: "bg-white/70 text-[#3f7d3a]",
+    iconBg: "bg-card/70 text-[#3f7d3a]",
     icon: "sofa",
     to: "/marketplace?category=home",
   },
@@ -46,12 +46,12 @@ const PromoBanners = () => {
           >
             <div className="relative z-10 max-w-[70%]">
               <p className={`text-sm font-extrabold ${banner.tagColor}`}>{banner.tag}</p>
-              <h3 className="mt-2 text-xl font-black leading-snug text-slate-900">
+              <h3 className="mt-2 text-xl font-black leading-snug text-heading">
                 {banner.heading}
               </h3>
             </div>
 
-            <span className="relative z-10 inline-flex w-fit items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-extrabold text-slate-900 shadow transition group-hover:gap-3">
+            <span className="relative z-10 inline-flex w-fit items-center gap-2 rounded-full bg-card px-4 py-2 text-xs font-extrabold text-heading shadow transition group-hover:gap-3">
               Shop Now
               <Icon name="arrowRight" className="h-3.5 w-3.5" />
             </span>

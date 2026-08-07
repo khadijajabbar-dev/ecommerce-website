@@ -63,9 +63,9 @@ const Trash = () => {
 
         <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
           <div>
-            <p className="text-sm font-bold text-[#178f95]">Recycle Bin</p>
+            <p className="text-sm font-bold text-primary">Recycle Bin</p>
             <h2 className="text-2xl font-extrabold text-[#17233f]">Deleted Products</h2>
-            <p className="mt-1 text-sm text-slate-500">
+            <p className="mt-1 text-sm text-body">
               Products you delete land here first. Restore them any time, or remove
               them for good.
             </p>
@@ -82,13 +82,13 @@ const Trash = () => {
         )}
 
         {loading ? (
-          <Card className="mt-6 p-8 text-center text-sm font-semibold text-slate-500">
+          <Card className="mt-6 p-8 text-center text-sm font-semibold text-body">
             Loading trash...
           </Card>
         ) : products.length === 0 ? (
-          <Card className="mt-6 border-dashed border-[#178f95]/30 bg-[#f6fbfb] p-8 text-center">
+          <Card className="mt-6 border-dashed border-border-main bg-alt p-8 text-center">
             <h3 className="text-xl font-extrabold">Trash is empty</h3>
-            <p className="mt-2 text-sm text-slate-500">
+            <p className="mt-2 text-sm text-body">
               Deleted products will show up here so you can restore them if you
               change your mind.
             </p>
@@ -99,7 +99,7 @@ const Trash = () => {
               <Card
                 key={product._id}
                 as="article"
-                className="overflow-hidden bg-white opacity-90"
+                className="overflow-hidden bg-card opacity-90"
               >
                 <div className="relative">
                   {product.imageUrl ? (
@@ -109,18 +109,18 @@ const Trash = () => {
                       className="h-44 w-full grayscale object-cover"
                     />
                   ) : (
-                    <div className="flex h-44 w-full items-center justify-center bg-[#f1f1f1] text-sm font-bold text-slate-400">
+                    <div className="flex h-44 w-full items-center justify-center bg-[#f1f1f1] text-sm font-bold text-muted">
                       No Image
                     </div>
                   )}
-                  <span className="absolute left-3 top-3 rounded-full bg-slate-900/80 px-3 py-1 text-xs font-bold text-white">
+                  <span className="absolute left-3 top-3 rounded-full bg-primary/80 px-3 py-1 text-xs font-bold text-white">
                     In Trash
                   </span>
                 </div>
 
                 <div className="p-5">
                   <div className="flex items-center justify-between gap-3">
-                    <span className="rounded-full bg-[#f1f1f1] px-3 py-1 text-xs font-bold capitalize text-slate-500">
+                    <span className="rounded-full bg-[#f1f1f1] px-3 py-1 text-xs font-bold capitalize text-body">
                       {product.category}
                     </span>
                     <span className="rounded-full bg-[#fff0e8] px-3 py-1 text-xs font-bold text-[#17233f]">
@@ -133,7 +133,7 @@ const Trash = () => {
                   </h4>
 
                   {product.deletedAt && (
-                    <p className="mt-2 text-xs font-semibold text-slate-400">
+                    <p className="mt-2 text-xs font-semibold text-muted">
                       Deleted on {new Date(product.deletedAt).toLocaleDateString()}
                     </p>
                   )}
@@ -141,15 +141,15 @@ const Trash = () => {
                   <div className="mt-4 flex items-end gap-2">
                     {product.discountPrice ? (
                       <>
-                        <span className="text-2xl font-black text-[#178f95]">
+                        <span className="text-2xl font-black text-primary">
                           Rs. {product.discountPrice}
                         </span>
-                        <span className="pb-1 text-sm font-semibold text-slate-400 line-through">
+                        <span className="pb-1 text-sm font-semibold text-muted line-through">
                           Rs. {product.price}
                         </span>
                       </>
                     ) : (
-                      <span className="text-2xl font-black text-[#178f95]">
+                      <span className="text-2xl font-black text-primary">
                         Rs. {product.price}
                       </span>
                     )}
@@ -157,7 +157,7 @@ const Trash = () => {
 
                   {confirmingId === product._id ? (
                     <div className="mt-5 rounded-2xl border border-red-200 bg-red-50 p-3">
-                      <p className="text-xs font-semibold text-red-700">
+                      <p className="text-xs font-semibold text-red-600">
                         Delete this product permanently? This can&apos;t be undone.
                       </p>
                       <div className="mt-3 flex gap-2">

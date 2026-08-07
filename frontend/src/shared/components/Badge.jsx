@@ -1,11 +1,11 @@
 const variants = {
-  primary: "bg-teal-50 text-teal-700 border border-teal-200",
-  secondary: "bg-amber-50 text-amber-700 border border-amber-200",
-  accent: "bg-blue-50 text-blue-700 border border-blue-200",
-  success: "bg-green-50 text-green-700 border border-green-200",
-  error: "bg-red-50 text-red-700 border border-red-200",
-  warning: "bg-orange-50 text-orange-700 border border-orange-200",
-  muted: "bg-slate-100 text-slate-600 border border-slate-200",
+  primary: "bg-alt text-primary border border-border-main",
+  accent: "bg-accent text-white",
+  success: "bg-green-50 text-green-600 border border-green-200",
+  error: "bg-red-50 text-red-600 border border-red-200",
+  warning: "bg-orange-50 text-orange-600 border border-orange-200",
+  info: "bg-blue-50 text-blue-600 border border-blue-200",
+  muted: "bg-page text-muted border border-border-main",
 };
 
 const sizes = {

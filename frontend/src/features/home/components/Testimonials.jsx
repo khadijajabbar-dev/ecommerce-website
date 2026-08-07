@@ -50,7 +50,7 @@ const StarRating = ({ rating }) => {
                 className="absolute inset-0 overflow-hidden"
                 style={{ width: half ? "50%" : "100%" }}
               >
-                <Icon name="star" className="h-4 w-4 text-amber-400" filled />
+                <Icon name="star" className="h-4 w-4 text-accent" filled />
               </span>
             )}
           </span>
@@ -69,7 +69,7 @@ const Testimonials = () => {
         </h2>
         <Link
           to="/marketplace"
-          className="hidden items-center gap-2 text-sm font-extrabold text-[#0f766e] transition hover:text-[#134e4a] sm:inline-flex"
+          className="hidden items-center gap-2 text-sm font-extrabold text-primary transition hover:text-primary sm:inline-flex"
         >
           View All
           <Icon name="arrowRight" className="h-4 w-4" />
@@ -80,11 +80,11 @@ const Testimonials = () => {
         {TESTIMONIALS.map((t) => (
           <div
             key={t.name}
-            className="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-5 shadow-lg shadow-slate-200/50 transition hover:-translate-y-1 hover:shadow-xl"
+            className="flex flex-col justify-between rounded-2xl border border-border-main bg-card p-5 shadow-lg shadow-slate-200/50 transition hover:-translate-y-1 hover:shadow-xl"
           >
             <div>
               <StarRating rating={t.rating} />
-              <p className="mt-3 text-sm leading-6 text-slate-600">
+              <p className="mt-3 text-sm leading-6 text-body">
                 &ldquo;{t.quote}&rdquo;
               </p>
             </div>
@@ -95,7 +95,7 @@ const Testimonials = () => {
               >
                 {t.initials}
               </span>
-              <span className="text-sm font-bold text-slate-900">{t.name}</span>
+              <span className="text-sm font-bold text-heading">{t.name}</span>
             </div>
           </div>
         ))}

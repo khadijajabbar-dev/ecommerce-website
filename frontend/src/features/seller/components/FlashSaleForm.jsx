@@ -78,18 +78,18 @@ const FlashSaleForm = ({ initialData, onSaved, onCancel }) => {
       : null;
 
   return (
-    <Card className="mx-auto max-w-2xl bg-white p-6 sm:p-8">
+    <Card className="mx-auto max-w-2xl bg-card p-6 sm:p-8">
       <div className="mb-6">
         <button
           onClick={onCancel}
-          className="mb-4 text-sm font-bold text-[#178f95] hover:underline"
+          className="mb-4 text-sm font-bold text-primary hover:underline"
         >
           ← Back to Flash Sales
         </button>
         <h2 className="text-2xl font-extrabold text-[#17233f]">
           {isEdit ? "Edit Flash Sale" : "Create Flash Sale"}
         </h2>
-        <p className="mt-1 text-sm text-slate-500">
+        <p className="mt-1 text-sm text-body">
           {isEdit
             ? "Update the details of your flash sale."
             : "Set up a time-limited discount on one of your products."}
@@ -112,7 +112,7 @@ const FlashSaleForm = ({ initialData, onSaved, onCancel }) => {
             Select Product
           </label>
           {loadingProducts ? (
-            <div className="h-11 animate-pulse rounded-xl bg-slate-100" />
+            <div className="h-11 animate-pulse rounded-xl bg-alt" />
           ) : (
             <select
               id="flash-product"
@@ -120,7 +120,7 @@ const FlashSaleForm = ({ initialData, onSaved, onCancel }) => {
               value={form.product}
               onChange={handleChange}
               required
-              className="h-11 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm font-medium text-slate-800 outline-none focus:border-[#0f766e] transition"
+              className="h-11 w-full rounded-xl border border-border-main bg-card px-4 text-sm font-medium text-heading outline-none focus:border-primary transition"
             >
               <option value="">Choose a product...</option>
               {products.map((p) => (
@@ -150,12 +150,12 @@ const FlashSaleForm = ({ initialData, onSaved, onCancel }) => {
             onChange={handleChange}
             required
             placeholder="e.g. 25"
-            className="h-11 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm font-medium text-slate-800 outline-none focus:border-[#0f766e] transition"
+            className="h-11 w-full rounded-xl border border-border-main bg-card px-4 text-sm font-medium text-heading outline-none focus:border-primary transition"
           />
           {discountedPrice && (
-            <p className="mt-1.5 text-xs font-semibold text-[#178f95]">
-              Flash price: <span className="text-[#0f766e]">Rs. {discountedPrice}</span>{" "}
-              <span className="text-slate-400 line-through">Rs. {selectedProduct.price}</span>
+            <p className="mt-1.5 text-xs font-semibold text-primary">
+              Flash price: <span className="text-primary">Rs. {discountedPrice}</span>{" "}
+              <span className="text-muted line-through">Rs. {selectedProduct.price}</span>
             </p>
           )}
         </div>
@@ -176,7 +176,7 @@ const FlashSaleForm = ({ initialData, onSaved, onCancel }) => {
               value={form.startDate}
               onChange={handleChange}
               required
-              className="h-11 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm font-medium text-slate-800 outline-none focus:border-[#0f766e] transition"
+              className="h-11 w-full rounded-xl border border-border-main bg-card px-4 text-sm font-medium text-heading outline-none focus:border-primary transition"
             />
           </div>
           <div>
@@ -193,7 +193,7 @@ const FlashSaleForm = ({ initialData, onSaved, onCancel }) => {
               value={form.endDate}
               onChange={handleChange}
               required
-              className="h-11 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm font-medium text-slate-800 outline-none focus:border-[#0f766e] transition"
+              className="h-11 w-full rounded-xl border border-border-main bg-card px-4 text-sm font-medium text-heading outline-none focus:border-primary transition"
             />
           </div>
         </div>
@@ -205,7 +205,7 @@ const FlashSaleForm = ({ initialData, onSaved, onCancel }) => {
             className="mb-1.5 block text-sm font-bold text-[#17233f]"
           >
             Quantity{" "}
-            <span className="font-medium text-slate-400">(optional)</span>
+            <span className="font-medium text-muted">(optional)</span>
           </label>
           <input
             id="flash-qty"
@@ -215,7 +215,7 @@ const FlashSaleForm = ({ initialData, onSaved, onCancel }) => {
             value={form.quantity}
             onChange={handleChange}
             placeholder="Leave empty for unlimited"
-            className="h-11 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm font-medium text-slate-800 outline-none focus:border-[#0f766e] transition"
+            className="h-11 w-full rounded-xl border border-border-main bg-card px-4 text-sm font-medium text-heading outline-none focus:border-primary transition"
           />
         </div>
 

@@ -38,7 +38,7 @@ const EditProduct = () => {
 
         <div className="mt-6">
           {loading ? (
-            <Card className="p-8 text-center text-sm font-semibold text-slate-500">
+            <Card className="p-8 text-center text-sm font-semibold text-body">
               Loading product...
             </Card>
           ) : error ? (

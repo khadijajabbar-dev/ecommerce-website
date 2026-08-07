@@ -182,7 +182,7 @@ const ProductForm = ({ onProductAdded, onCancel, initialData }) => {
     <Card className="p-5">
       <div className="mb-5 flex items-start justify-between gap-4">
         <div>
-          <p className="text-sm font-bold text-[#178f95]">
+          <p className="text-sm font-bold text-primary">
             {isEditMode ? "Edit listing" : "New listing"}
           </p>
           <h3 className="text-2xl font-extrabold text-[#17233f]">
@@ -275,7 +275,7 @@ const ProductForm = ({ onProductAdded, onCancel, initialData }) => {
         <div>
           <label className="mb-2 block text-sm font-semibold text-[#17233f]">
             Available Colors
-            <span className="ml-1 text-xs font-normal text-slate-400">
+            <span className="ml-1 text-xs font-normal text-muted">
               (optional — type a color and press Enter or click + Add)
             </span>
           </label>
@@ -286,10 +286,10 @@ const ProductForm = ({ onProductAdded, onCancel, initialData }) => {
               {colors.map((c) => (
                 <span
                   key={c}
-                  className="flex items-center gap-1.5 rounded-full border border-[#178f95]/30 bg-teal-50 px-3 py-1 text-xs font-bold text-[#178f95]"
+                  className="flex items-center gap-1.5 rounded-full border border-primary/30 bg-alt px-3 py-1 text-xs font-bold text-primary"
                 >
                   <span
-                    className="inline-block h-3 w-3 rounded-full border border-slate-200"
+                    className="inline-block h-3 w-3 rounded-full border border-border-main"
                     style={{ backgroundColor: c.toLowerCase() }}
                   />
                   {c}
@@ -314,13 +314,13 @@ const ProductForm = ({ onProductAdded, onCancel, initialData }) => {
               onChange={(e) => setColorInput(e.target.value)}
               onKeyDown={handleColorKeyDown}
               placeholder="e.g. Red, Blue, Black..."
-              className="h-10 flex-1 rounded-xl border border-slate-200 px-4 text-sm font-medium text-slate-800 outline-none focus:border-[#178f95]"
+              className="h-10 flex-1 rounded-xl border border-border-main px-4 text-sm font-medium text-heading outline-none focus:border-primary"
             />
             <button
               type="button"
               onClick={pushColor}
               disabled={!colorInput.trim()}
-              className="h-10 rounded-xl bg-[#178f95] px-4 text-sm font-bold text-white transition hover:bg-[#12757a] disabled:opacity-40"
+              className="h-10 rounded-xl bg-primary px-4 text-sm font-bold text-white transition hover:bg-primary disabled:opacity-40"
             >
               + Add
             </button>
@@ -338,11 +338,11 @@ const ProductForm = ({ onProductAdded, onCancel, initialData }) => {
           <div className="mb-2 flex items-center justify-between">
             <label className="text-sm font-semibold text-[#17233f]">
               Product Images
-              <span className="ml-1 text-xs font-normal text-slate-400">
+              <span className="ml-1 text-xs font-normal text-muted">
                 (min 1, max {MAX_IMAGES})
               </span>
             </label>
-            <span className="text-xs font-semibold text-slate-400">
+            <span className="text-xs font-semibold text-muted">
               {imageSlots.length}/{MAX_IMAGES} uploaded
             </span>
           </div>
@@ -355,13 +355,13 @@ const ProductForm = ({ onProductAdded, onCancel, initialData }) => {
                     src={slot.preview}
                     alt={`Product image ${idx + 1}`}
                     className={`h-24 w-24 rounded-xl border-2 object-cover transition ${
-                      slot.url ? "border-[#178f95]" : "border-slate-200 opacity-50"
+                      slot.url ? "border-primary" : "border-border-main opacity-50"
                     }`}
                   />
                   {!slot.url && (
-                    <div className="absolute inset-0 flex items-center justify-center rounded-xl bg-white/70">
+                    <div className="absolute inset-0 flex items-center justify-center rounded-xl bg-card/70">
                       <svg
-                        className="h-5 w-5 animate-spin text-[#178f95]"
+                        className="h-5 w-5 animate-spin text-primary"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
@@ -376,13 +376,13 @@ const ProductForm = ({ onProductAdded, onCancel, initialData }) => {
                       type="button"
                       onClick={() => handleRemoveImage(idx)}
                       aria-label="Remove image"
-                      className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-red-500 text-xs font-black text-white shadow hover:bg-red-600"
+                      className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-accent text-xs font-black text-white shadow hover:bg-red-600"
                     >
                       &#x2715;
                     </button>
                   )}
                   {idx === 0 && slot.url && (
-                    <span className="absolute bottom-1 left-1 rounded-full bg-[#178f95] px-1.5 py-0.5 text-[10px] font-bold text-white">
+                    <span className="absolute bottom-1 left-1 rounded-full bg-primary px-1.5 py-0.5 text-[10px] font-bold text-white">
                       Cover
                     </span>
                   )}
@@ -396,8 +396,8 @@ const ProductForm = ({ onProductAdded, onCancel, initialData }) => {
               htmlFor="imageFiles"
               className={`flex cursor-pointer items-center gap-3 rounded-xl border-2 border-dashed px-4 py-3 text-sm font-semibold transition ${
                 isUploading
-                  ? "border-slate-200 text-slate-400"
-                  : "border-[#178f95]/40 text-[#178f95] hover:border-[#178f95] hover:bg-teal-50/40"
+                  ? "border-border-main text-muted"
+                  : "border-primary/40 text-primary hover:border-primary hover:bg-alt/40"
               }`}
             >
               <span className="text-xl leading-none">+</span>

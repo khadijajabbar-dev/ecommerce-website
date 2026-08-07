@@ -25,12 +25,12 @@ const ProductGrid = ({
 
   if (!products || products.length === 0) {
     return (
-      <Card className="border-dashed border-teal-200 bg-teal-50/40 p-8 text-center">
-        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-teal-100 text-xl font-black text-teal-700">
+      <Card className="border-dashed border-border-main bg-alt/40 p-8 text-center">
+        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-alt text-xl font-black text-primary">
           !
         </div>
-        <h3 className="mt-4 text-xl font-extrabold text-slate-900">No products available</h3>
-        <p className="mt-2 text-sm leading-6 text-slate-500">
+        <h3 className="mt-4 text-xl font-extrabold text-heading">No products available</h3>
+        <p className="mt-2 text-sm leading-6 text-body">
           Sellers haven&apos;t listed any products yet. Please check back soon.
         </p>
       </Card>
@@ -47,7 +47,7 @@ const ProductGrid = ({
           <Card
             key={product._id}
             as="article"
-            className="relative overflow-hidden bg-white transition hover:-translate-y-1 hover:shadow-lg"
+            className="relative overflow-hidden bg-card transition hover:-translate-y-1 hover:shadow-lg"
           >
             {onToggleWishlist && (
               <button
@@ -58,7 +58,7 @@ const ProductGrid = ({
                 }}
                 aria-label="Toggle wishlist"
                 className={`absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full text-lg shadow-md transition ${
-                  isWishlisted ? "bg-red-500 text-white" : "bg-white text-slate-400 hover:text-red-500"
+                  isWishlisted ? "bg-accent text-white" : "bg-card text-muted hover:text-red-500"
                 }`}
               >
                 <Icon name="heart" className="h-4 w-4" filled={isWishlisted} />
@@ -66,27 +66,27 @@ const ProductGrid = ({
             )}
 
             <Link to={`/product/${product._id}`} className="block">
-              <div className="flex h-48 items-center justify-center overflow-hidden bg-slate-100">
-                <ProductImageCard product={product} fallbackIcon="package" fallbackIconClassName="h-12 w-12 text-teal-700" />
+              <div className="flex h-48 items-center justify-center overflow-hidden bg-alt">
+                <ProductImageCard product={product} fallbackIcon="package" fallbackIconClassName="h-12 w-12 text-primary" />
               </div>
             </Link>
 
             <div className="p-5">
-              <span className="inline-flex rounded-full bg-teal-50 px-2.5 py-1 text-[11px] font-black text-teal-700">
+              <span className="inline-flex rounded-full bg-alt px-2.5 py-1 text-[11px] font-black text-primary">
                 {getCategoryLabel(product.category)}
               </span>
               <Link to={`/product/${product._id}`}>
-                <h3 className="mt-2 line-clamp-1 text-lg font-extrabold text-slate-900">{product.title}</h3>
+                <h3 className="mt-2 line-clamp-1 text-lg font-extrabold text-heading">{product.title}</h3>
               </Link>
-              <p className="mt-1 line-clamp-2 text-sm text-slate-500">
+              <p className="mt-1 line-clamp-2 text-sm text-body">
                 {product.description || "Quality product from Easy Mart sellers."}
               </p>
 
               <div className="mt-4 flex items-end justify-between gap-2">
                 <div>
-                  <span className="text-xl font-black text-teal-700">Rs. {price}</span>
+                  <span className="text-xl font-black text-primary">Rs. {price}</span>
                   {product.discountPrice != null && product.discountPrice < product.price && (
-                    <span className="ml-2 text-sm font-semibold text-slate-400 line-through">
+                    <span className="ml-2 text-sm font-semibold text-muted line-through">
                       Rs. {product.price}
                     </span>
                   )}
@@ -97,7 +97,7 @@ const ProductGrid = ({
               </div>
 
               <div className="mt-4 flex gap-2">
-                <Button onClick={() => goBuy(product._id)} fullWidth disabled={product.stock <= 0}>
+                <Button variant="accent" onClick={() => goBuy(product._id)} fullWidth disabled={product.stock <= 0}>
                   Buy Now
                 </Button>
                 {onAddToCart && (

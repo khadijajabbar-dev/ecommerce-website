@@ -73,15 +73,15 @@ const SpecialDeals = () => {
 
   return (
     <section className="mx-auto w-full max-w-7xl px-4 pt-8 sm:px-6 lg:px-8">
-      <div className="relative overflow-hidden rounded-[28px] bg-gradient-to-r from-[#0f766e] via-[#0d9488] to-[#134e4a] shadow-xl shadow-[#0f766e]/20">
+      <div className="relative overflow-hidden rounded-[28px] bg-primary shadow-xl shadow-primary/20">
         {/* Decorative circles */}
-        <span className="pointer-events-none absolute -right-10 -top-16 h-56 w-56 rounded-full bg-white/10" />
-        <span className="pointer-events-none absolute -bottom-20 right-24 h-40 w-40 rounded-full bg-white/10" />
+        <span className="pointer-events-none absolute -right-10 -top-16 h-56 w-56 rounded-full bg-card/10" />
+        <span className="pointer-events-none absolute -bottom-20 right-24 h-40 w-40 rounded-full bg-card/10" />
 
         <div className="relative grid gap-8 p-7 sm:p-10 lg:grid-cols-2 lg:items-center lg:p-14">
           {/* Left: copy + countdown */}
           <div>
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-xs font-extrabold uppercase tracking-wide text-amber-300">
+            <span className="inline-flex items-center gap-2 rounded-full bg-card/15 px-4 py-1.5 text-xs font-extrabold uppercase tracking-wide text-accent">
               Limited Time Offer
             </span>
 
@@ -101,12 +101,12 @@ const SpecialDeals = () => {
               {timeUnits.map((unit) => (
                 <div
                   key={unit.label}
-                  className="flex w-16 flex-col items-center rounded-2xl bg-white/95 py-2.5 shadow-lg sm:w-20"
+                  className="flex w-16 flex-col items-center rounded-2xl bg-card/95 py-2.5 shadow-lg sm:w-20"
                 >
-                  <span className="text-xl font-black text-[#0f766e] sm:text-2xl">
+                  <span className="text-xl font-black text-primary sm:text-2xl">
                     {pad(unit.value)}
                   </span>
-                  <span className="mt-0.5 text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                  <span className="mt-0.5 text-[10px] font-bold uppercase tracking-wide text-muted">
                     {unit.label}
                   </span>
                 </div>
@@ -115,7 +115,7 @@ const SpecialDeals = () => {
 
             <Link
               to={deal ? `/product/${deal._id}` : "/marketplace"}
-              className="mt-8 inline-flex h-12 items-center gap-2 rounded-xl bg-white px-7 text-sm font-extrabold text-[#0f766e] shadow-lg transition hover:-translate-y-0.5 hover:bg-amber-50"
+              className="mt-8 inline-flex h-12 items-center gap-2 rounded-xl bg-card px-7 text-sm font-extrabold text-primary shadow-lg transition hover:-translate-y-0.5 hover:bg-amber-50"
             >
               Shop Now
               <Icon name="arrowRight" className="h-4 w-4" />
@@ -124,7 +124,7 @@ const SpecialDeals = () => {
 
           {/* Right: featured deal product + discount badge */}
           <div className="relative flex items-center justify-center py-4">
-            <div className="flex h-56 w-56 items-center justify-center rounded-full bg-white/10 sm:h-72 sm:w-72">
+            <div className="flex h-56 w-56 items-center justify-center rounded-full bg-card/10 sm:h-72 sm:w-72">
               {!loading && deal?.imageUrl ? (
                 <img
                   src={deal.imageUrl}
@@ -137,12 +137,12 @@ const SpecialDeals = () => {
             </div>
 
             {/* Discount badge */}
-            <div className="absolute right-2 top-2 flex h-24 w-24 flex-col items-center justify-center rounded-full border-4 border-white bg-white text-center shadow-xl sm:right-6 sm:top-4 sm:h-28 sm:w-28">
-              <span className="text-[10px] font-bold uppercase text-slate-400">Up To</span>
-              <span className="text-2xl font-black text-[#0f766e] sm:text-3xl">
+            <div className="absolute right-2 top-2 flex h-24 w-24 flex-col items-center justify-center rounded-full border-4 border-white bg-card text-center shadow-xl sm:right-6 sm:top-4 sm:h-28 sm:w-28">
+              <span className="text-[10px] font-bold uppercase text-muted">Up To</span>
+              <span className="text-2xl font-black text-accent sm:text-3xl">
                 {discountPercent}%
               </span>
-              <span className="text-[10px] font-bold uppercase text-slate-400">Off</span>
+              <span className="text-[10px] font-bold uppercase text-muted">Off</span>
             </div>
           </div>
         </div>

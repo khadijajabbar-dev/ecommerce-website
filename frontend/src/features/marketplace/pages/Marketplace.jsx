@@ -110,29 +110,39 @@ const Marketplace = () => {
   };
 
   return (
-    <main className="min-h-screen bg-[#fbfdfc] text-[#17233f]">
+    <main className="min-h-screen bg-page text-heading">
       <PublicNavbar activePage="Marketplace" />
 
-      <section className="bg-gradient-to-br from-white via-[#f7fcfc] to-[#fff7f1]">
-        <div className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-          <span className="inline-flex rounded-xl bg-[#dff3f2] px-4 py-2 text-sm font-extrabold text-[#178f95]">
-            Easy Mart Marketplace
-          </span>
-          <h1 className="mt-5 max-w-2xl text-4xl font-black leading-[1.1] tracking-normal text-[#17233f] sm:text-5xl">
-            Explore quality products without signing in.
-          </h1>
-          <p className="mt-5 max-w-xl text-lg leading-8 text-[#64748b]">
-            Browse every category and every seller in one place. Login is only
-            needed when you want to buy, save, or manage orders.
-          </p>
+      <section className="bg-primary">
+        <div className="mx-auto grid w-full max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
+          <div>
+            <span className="inline-flex rounded-xl bg-card px-4 py-2 text-sm font-extrabold text-primary shadow-sm">
+              Easy Mart Marketplace
+            </span>
+            <h1 className="mt-5 max-w-2xl text-4xl font-black leading-[1.1] tracking-normal text-white sm:text-5xl">
+              Explore quality products without signing in.
+            </h1>
+            <p className="mt-5 max-w-xl text-lg leading-8 text-white/90">
+              Browse every category and every seller in one place. Login is only
+              needed when you want to buy, save, or manage orders.
+            </p>
+          </div>
+          
+          <div className="hidden lg:flex justify-end items-center">
+            <img 
+              src="/marketplace-banner.png" 
+              alt="Marketplace" 
+              className="w-full max-w-[420px] h-auto object-contain drop-shadow-2xl hover:-translate-y-2 transition-transform duration-500"
+            />
+          </div>
         </div>
       </section>
 
       <section id="products" className="mx-auto w-full max-w-7xl px-4 py-9 sm:px-6 lg:px-8">
         <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-sm font-black text-[#178f95]">Public Marketplace</p>
-            <h2 className="mt-1 text-3xl font-black tracking-normal text-[#17233f]">
+            <p className="text-sm font-black text-primary">Public Marketplace</p>
+            <h2 className="mt-1 text-3xl font-black tracking-normal text-heading">
               {searchTerm
                 ? `Search results for "${searchTerm}"`
                 : activeCategory === "all"
@@ -149,8 +159,8 @@ const Marketplace = () => {
             onClick={() => handleCategoryChange("all")}
             className={`inline-flex items-center gap-2 rounded-xl border px-4 py-2 text-sm font-extrabold transition ${
               activeCategory === "all"
-                ? "border-[#178f95] bg-[#178f95] text-white"
-                : "border-[#e5e7eb] bg-white text-[#64748b] hover:border-[#178f95] hover:text-[#178f95]"
+                ? "border-primary bg-primary text-white"
+                : "border-[#e5e7eb] bg-card text-[#64748b] hover:border-primary hover:text-primary"
             }`}
           >
             <Icon name="grid" className="h-4 w-4" />
@@ -163,8 +173,8 @@ const Marketplace = () => {
               onClick={() => handleCategoryChange(category.value)}
               className={`inline-flex items-center gap-2 rounded-xl border px-4 py-2 text-sm font-extrabold transition ${
                 activeCategory === category.value
-                  ? "border-[#178f95] bg-[#178f95] text-white"
-                  : "border-[#e5e7eb] bg-white text-[#64748b] hover:border-[#178f95] hover:text-[#178f95]"
+                  ? "border-primary bg-primary text-white"
+                  : "border-[#e5e7eb] bg-card text-[#64748b] hover:border-primary hover:text-primary"
               }`}
             >
               <Icon name={category.icon} className="h-4 w-4" />
@@ -174,7 +184,7 @@ const Marketplace = () => {
         </div>
 
         {cartMessage && (
-          <p className="mb-5 rounded-2xl border border-[#178f95]/30 bg-[#f6fbfb] px-4 py-3 text-sm font-semibold text-[#178f95]">
+          <p className="mb-5 rounded-2xl border border-primary/30 bg-alt px-4 py-3 text-sm font-semibold text-primary">
             {cartMessage}
           </p>
         )}
@@ -182,19 +192,19 @@ const Marketplace = () => {
         {loading && (
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {Array.from({ length: 6 }).map((_, index) => (
-              <div key={index} className="h-80 animate-pulse rounded-2xl border border-[#e5e7eb] bg-[#f6fbfb]" />
+              <div key={index} className="h-80 animate-pulse rounded-2xl border border-[#e5e7eb] bg-alt" />
             ))}
           </div>
         )}
 
         {!loading && error && (
-          <p className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
+          <p className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-600">
             {error}
           </p>
         )}
 
         {!loading && !error && products.length === 0 && (
-          <div className="rounded-[24px] bg-[#f6fbfb] p-10 text-center text-sm font-semibold text-slate-500">
+          <div className="rounded-[24px] bg-alt p-10 text-center text-sm font-semibold text-body">
             {searchTerm
               ? `No products matched "${searchTerm}" — try a different search.`
               : "No products found in this category yet — try another category."}
@@ -210,7 +220,7 @@ const Marketplace = () => {
                 return (
                   <article
                     key={product._id}
-                    className="relative flex flex-col rounded-2xl border border-[#e5e7eb] bg-white p-5 shadow-lg shadow-slate-200/55 transition hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200"
+                    className="relative flex flex-col rounded-2xl border border-[#e5e7eb] bg-card p-5 shadow-lg shadow-slate-200/55 transition hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200"
                   >
                     {/* Wishlist heart — works on every product card */}
                     <button
@@ -218,7 +228,7 @@ const Marketplace = () => {
                       onClick={() => handleToggleWishlist(product._id)}
                       aria-label="Toggle wishlist"
                       className={`absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full shadow-md transition ${
-                        isWishlisted ? "bg-red-500 text-white" : "bg-white text-slate-400 hover:text-red-500"
+                        isWishlisted ? "bg-accent text-white" : "bg-card text-muted hover:text-red-500"
                       }`}
                     >
                       <Icon name="heart" className="h-4 w-4" filled={isWishlisted} />
@@ -226,19 +236,19 @@ const Marketplace = () => {
 
                     {/* Clicking the card (image/title) opens the full product page */}
                     <Link to={`/product/${product._id}`} className="block">
-                      <div className="flex h-40 items-center justify-center overflow-hidden rounded-2xl bg-[#f6fbfb]">
+                      <div className="flex h-40 items-center justify-center overflow-hidden rounded-2xl bg-alt">
                         <ProductImageCard product={product} />
                       </div>
                       <div className="mt-5 flex items-start justify-between gap-4">
                         <span className="min-w-0">
-                          <span className="rounded-full bg-[#dff3f2] px-3 py-1 text-xs font-black capitalize text-[#178f95]">
+                          <span className="rounded-full bg-alt px-3 py-1 text-xs font-black capitalize text-primary">
                             {getCategoryLabel(product.category)}
                           </span>
                           <h3 className="mt-3 line-clamp-1 text-xl font-black text-[#17233f]">
                             {product.title}
                           </h3>
                         </span>
-                        <span className="shrink-0 text-xl font-black text-[#178f95]">
+                        <span className="shrink-0 text-xl font-black text-primary">
                           Rs. {product.discountPrice || product.price}
                         </span>
                       </div>
@@ -248,7 +258,7 @@ const Marketplace = () => {
                         </p>
                       )}
                       {product.seller?.storeProfile?.storeName && (
-                        <p className="mt-2 text-xs font-semibold text-slate-400">
+                        <p className="mt-2 text-xs font-semibold text-muted">
                           Sold by {product.seller.storeProfile.storeName}
                         </p>
                       )}
@@ -259,7 +269,7 @@ const Marketplace = () => {
                         type="button"
                         onClick={() => handleBuyNow(product._id)}
                         disabled={product.stock <= 0}
-                        className="inline-flex h-11 flex-1 items-center justify-center gap-2 rounded-xl bg-[#178f95] text-sm font-extrabold text-white transition hover:bg-[#12757a] disabled:cursor-not-allowed disabled:opacity-50"
+                        className="inline-flex h-11 flex-1 items-center justify-center gap-2 rounded-xl bg-accent text-sm font-extrabold text-white transition hover:bg-accent-dark disabled:cursor-not-allowed disabled:opacity-50"
                       >
                         {product.stock <= 0 ? "Out of Stock" : isLoggedIn() ? "Buy Now" : "Login to Buy"}
                         <Icon name="arrowRight" className="h-4 w-4" />
@@ -269,7 +279,7 @@ const Marketplace = () => {
                         onClick={() => handleAddToCart(product._id)}
                         disabled={product.stock <= 0}
                         aria-label="Add to cart"
-                        className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#178f95]/30 text-[#178f95] transition hover:bg-[#dff3f2] disabled:cursor-not-allowed disabled:opacity-50"
+                        className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-primary/30 text-primary transition hover:bg-alt disabled:cursor-not-allowed disabled:opacity-50"
                       >
                         <Icon name="cart" className="h-5 w-5" />
                       </button>

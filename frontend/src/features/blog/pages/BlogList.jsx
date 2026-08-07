@@ -43,17 +43,26 @@ const BlogList = () => {
   };
 
   return (
-    <main className="min-h-screen bg-[#fbfdfc] text-[#17233f]">
+    <main className="min-h-screen bg-page text-heading">
       <PublicNavbar activePage="Blog" />
 
-      <section className="bg-gradient-to-br from-white via-[#f7fcfc] to-[#fff7f1]">
-        <div className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-          <span className="inline-flex rounded-xl bg-[#dff3f2] px-4 py-2 text-sm font-extrabold text-[#178f95]">
-            Easy Mart Blog
-          </span>
-          <h1 className="mt-5 max-w-2xl text-4xl font-black leading-[1.1] tracking-normal text-[#17233f] sm:text-5xl">
-            Stories, guides & updates from our sellers.
-          </h1>
+      <section className="bg-primary">
+        <div className="mx-auto grid w-full max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_1fr] lg:px-8">
+          <div>
+            <span className="inline-flex rounded-xl bg-card px-4 py-2 text-sm font-extrabold text-primary shadow-sm">
+              Easy Mart Blog
+            </span>
+            <h1 className="mt-5 max-w-2xl text-4xl font-black leading-[1.1] tracking-normal text-white sm:text-5xl">
+              Stories, guides & updates from our sellers.
+            </h1>
+          </div>
+          <div className="hidden lg:flex justify-end items-center">
+            <img 
+              src="/blog-banner.png" 
+              alt="Blog" 
+              className="w-full max-w-[400px] h-auto object-contain drop-shadow-2xl hover:-translate-y-2 transition-transform duration-500"
+            />
+          </div>
         </div>
       </section>
 
@@ -61,19 +70,19 @@ const BlogList = () => {
         {loading && (
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {Array.from({ length: 6 }).map((_, index) => (
-              <div key={index} className="h-72 animate-pulse rounded-2xl border border-[#e5e7eb] bg-[#f6fbfb]" />
+              <div key={index} className="h-72 animate-pulse rounded-2xl border border-[#e5e7eb] bg-alt" />
             ))}
           </div>
         )}
 
         {!loading && error && (
-          <p className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
+          <p className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-600">
             {error}
           </p>
         )}
 
         {!loading && !error && blogs.length === 0 && (
-          <div className="rounded-[24px] bg-[#f6fbfb] p-10 text-center text-sm font-semibold text-slate-500">
+          <div className="rounded-[24px] bg-alt p-10 text-center text-sm font-semibold text-body">
             No blog posts yet — check back soon.
           </div>
         )}
@@ -85,9 +94,9 @@ const BlogList = () => {
                 <Link
                   key={blog._id}
                   to={`/blog/${blog.slug}`}
-                  className="group flex flex-col overflow-hidden rounded-2xl border border-[#e5e7eb] bg-white shadow-lg shadow-slate-200/55 transition hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200"
+                  className="group flex flex-col overflow-hidden rounded-2xl border border-[#e5e7eb] bg-card shadow-lg shadow-slate-200/55 transition hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-200"
                 >
-                  <div className="flex h-44 items-center justify-center overflow-hidden bg-[#f6fbfb]">
+                  <div className="flex h-44 items-center justify-center overflow-hidden bg-alt">
                     {blog.coverImage ? (
                       <img
                         src={blog.coverImage}
@@ -96,7 +105,7 @@ const BlogList = () => {
                         className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
                       />
                     ) : (
-                      <Icon name="messageCircle" className="h-12 w-12 text-[#178f95]/40" />
+                      <Icon name="messageCircle" className="h-12 w-12 text-primary/40" />
                     )}
                   </div>
                   <div className="flex flex-1 flex-col p-5">
@@ -106,7 +115,7 @@ const BlogList = () => {
                         {blog.excerpt}
                       </p>
                     )}
-                    <div className="mt-4 flex items-center justify-between text-xs font-semibold text-slate-400">
+                    <div className="mt-4 flex items-center justify-between text-xs font-semibold text-muted">
                       <span>{blog.author?.storeProfile?.storeName || "Easy Mart Seller"}</span>
                       <span>{new Date(blog.createdAt).toLocaleDateString()}</span>
                     </div>

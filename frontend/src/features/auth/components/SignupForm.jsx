@@ -79,7 +79,7 @@ const SignupForm = () => {
 
       <div>
         <p className="mb-1 text-xs font-semibold text-[#17233f]">Choose account type</p>
-        <div className="grid grid-cols-2 gap-2 rounded-xl bg-slate-100 p-1">
+        <div className="grid grid-cols-2 gap-2 rounded-xl bg-alt p-1">
           {roleOptions.map((option) => {
             const isActive = selectedRole === option.value;
             return (
@@ -91,8 +91,8 @@ const SignupForm = () => {
                 onClick={() => handleRoleChange(option.value)}
                 className={`h-auto justify-start rounded-lg px-3 py-1 text-left shadow-none ${
                   isActive
-                    ? "bg-white text-[#178f95] ring-1 ring-[#178f95]/20"
-                    : "border-transparent bg-transparent text-slate-500 hover:bg-white/70 hover:text-[#17233f]"
+                    ? "bg-card text-primary ring-1 ring-primary/20"
+                    : "border-transparent bg-transparent text-body hover:bg-card/70 hover:text-[#17233f]"
                 }`}
               >
                 <span>
@@ -152,7 +152,7 @@ const SignupForm = () => {
             variant="ghost"
             size="sm"
             onClick={() => setShowPassword((prev) => !prev)}
-            className="absolute right-2 top-7 h-auto border-0 px-2 py-1 text-[11px] text-[#178f95] shadow-none hover:bg-[#dff3f2]"
+            className="absolute right-2 top-7 h-auto border-0 px-2 py-1 text-[11px] text-primary shadow-none hover:bg-alt"
           >
             {showPassword ? "Hide" : "Show"}
           </Button>
@@ -173,7 +173,7 @@ const SignupForm = () => {
             variant="ghost"
             size="sm"
             onClick={() => setShowConfirmPassword((prev) => !prev)}
-            className="absolute right-2 top-7 h-auto border-0 px-2 py-1 text-[11px] text-[#178f95] shadow-none hover:bg-[#dff3f2]"
+            className="absolute right-2 top-7 h-auto border-0 px-2 py-1 text-[11px] text-primary shadow-none hover:bg-alt"
           >
             {showConfirmPassword ? "Hide" : "Show"}
           </Button>
@@ -185,9 +185,9 @@ const SignupForm = () => {
         <span className="transition-transform duration-300 group-hover:translate-x-1">-&gt;</span>
       </Button>
 
-      <p className="text-center text-xs text-slate-500">
+      <p className="text-center text-xs text-body">
         Already have an account?{" "}
-        <Link to="/login" className="font-bold text-[#178f95] hover:underline">
+        <Link to="/login" className="font-bold text-primary hover:underline">
           Login
         </Link>
       </p>

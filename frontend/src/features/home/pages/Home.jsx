@@ -11,13 +11,26 @@ import { PublicCTA, PublicFooter, PublicNavbar } from "../../../shared/component
 
 const Home = () => {
   return (
-    <main className="min-h-screen bg-[#fbfdfc] text-[#17233f]">
+    <main className="min-h-screen bg-[#f8fafc] text-heading">
       <PublicNavbar />
       <HomeHero />
       <BenefitsRow />
-      <CategorySection />
-     <FlashSaleSection />
-     <FeaturedProducts />
+      
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-16">
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Sidebar */}
+          <aside className="w-full lg:w-[250px] shrink-0">
+            <CategorySection />
+          </aside>
+          
+          {/* Main Content Area */}
+          <div className="flex-1 flex flex-col gap-10 min-w-0">
+            <FlashSaleSection />
+            <FeaturedProducts />
+          </div>
+        </div>
+      </div>
+
       <SpecialDeals />
       <PromoBanners />
       <Testimonials />

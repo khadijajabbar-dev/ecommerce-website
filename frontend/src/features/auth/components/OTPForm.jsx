@@ -122,7 +122,7 @@ const OTPForm = () => {
         type="text"
         maxLength={6}
         placeholder="A1B2C3"
-        inputClassName="h-14 text-center text-xl font-black uppercase tracking-[0.35em] placeholder:text-slate-300"
+        inputClassName="h-14 text-center text-xl font-black uppercase tracking-[0.35em] placeholder:text-muted"
         error={errors.otp?.message}
         {...register("otp")}
       />
@@ -130,7 +130,7 @@ const OTPForm = () => {
       {/* Live expiry countdown, shown right below the OTP field */}
       <p
         className={`-mt-2 text-center text-sm font-semibold ${
-          isExpired ? "text-red-600" : "text-slate-500"
+          isExpired ? "text-red-600" : "text-body"
         }`}
       >
         {isExpired
@@ -159,9 +159,9 @@ const OTPForm = () => {
         </Button>
       </div>
 
-      <p className="text-center text-sm text-slate-500">
+      <p className="text-center text-sm text-body">
         Back to{" "}
-        <Link to="/signup" className="font-bold text-[#178f95] hover:underline">
+        <Link to="/signup" className="font-bold text-primary hover:underline">
           Sign Up
         </Link>
       </p>

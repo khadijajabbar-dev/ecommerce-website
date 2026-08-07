@@ -37,8 +37,8 @@ const ConfirmOrder = () => {
       <Card className="w-full max-w-md p-8 text-center">
         {status === "loading" && (
           <>
-            <div className="mx-auto h-12 w-12 animate-pulse rounded-2xl bg-[#dff3f2]" />
-            <p className="mt-4 text-sm font-semibold text-slate-500">Confirming your order...</p>
+            <div className="mx-auto h-12 w-12 animate-pulse rounded-2xl bg-alt" />
+            <p className="mt-4 text-sm font-semibold text-body">Confirming your order...</p>
           </>
         )}
 
@@ -48,8 +48,8 @@ const ConfirmOrder = () => {
               ✓
             </div>
             <h2 className="mt-4 text-2xl font-extrabold">Order Confirmed!</h2>
-            <p className="mt-2 text-sm text-slate-500">{message}</p>
-            <p className="mt-2 text-sm text-slate-500">
+            <p className="mt-2 text-sm text-body">{message}</p>
+            <p className="mt-2 text-sm text-body">
               The seller has been notified and will process your order soon.
             </p>
             <Link to="/login">
@@ -66,7 +66,7 @@ const ConfirmOrder = () => {
               !
             </div>
             <h2 className="mt-4 text-2xl font-extrabold">Confirmation Failed</h2>
-            <p className="mt-2 text-sm text-slate-500">{message}</p>
+            <p className="mt-2 text-sm text-body">{message}</p>
             <Link to="/login">
               <Button className="mt-6" variant="secondary" fullWidth>
                 Go to Login

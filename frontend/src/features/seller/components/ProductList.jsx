@@ -35,12 +35,12 @@
 
 // //   if (!products || products.length === 0) {
 // //     return (
-// //       <Card className="border-dashed border-[#178f95]/30 bg-[#f6fbfb] p-8 text-center">
-// //         <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[#dff3f2] text-xl font-black text-[#178f95]">
+// //       <Card className="border-dashed border-primary/30 bg-alt p-8 text-center">
+// //         <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-alt text-xl font-black text-primary">
 // //           +
 // //         </div>
 // //         <h3 className="mt-4 text-xl font-extrabold text-[#17233f]">No products yet</h3>
-// //         <p className="mt-2 text-sm leading-6 text-slate-500">
+// //         <p className="mt-2 text-sm leading-6 text-body">
 // //           You haven&apos;t added any products yet. Click Add Product to create your first listing.
 // //         </p>
 // //       </Card>
@@ -61,7 +61,7 @@
 // //       />
 
 // //       {filteredProducts.length === 0 ? (
-// //         <Card className="bg-[#f6fbfb] p-8 text-center text-sm font-semibold text-slate-500">
+// //         <Card className="bg-alt p-8 text-center text-sm font-semibold text-body">
 // //           No products match your search.
 // //         </Card>
 // //       ) : (
@@ -70,7 +70,7 @@
 // //             <Card
 // //               key={product._id}
 // //               as="article"
-// //               className="overflow-hidden bg-white transition hover:-translate-y-1 hover:shadow-lg"
+// //               className="overflow-hidden bg-card transition hover:-translate-y-1 hover:shadow-lg"
 // //             >
 // //               {(() => {
 // //                 const thumb =
@@ -84,7 +84,7 @@
 // //                     className="h-44 w-full object-cover"
 // //                   />
 // //                 ) : (
-// //                   <div className="flex h-44 w-full items-center justify-center bg-[#dff3f2] text-sm font-bold text-[#178f95]">
+// //                   <div className="flex h-44 w-full items-center justify-center bg-alt text-sm font-bold text-primary">
 // //                     No Image
 // //                   </div>
 // //                 );
@@ -92,7 +92,7 @@
 
 // //               <div className="p-5">
 // //                 <div className="flex items-center justify-between gap-3">
-// //                   <span className="rounded-full bg-[#dff3f2] px-3 py-1 text-xs font-bold capitalize text-[#178f95]">
+// //                   <span className="rounded-full bg-alt px-3 py-1 text-xs font-bold capitalize text-primary">
 // //                     {product.category}
 // //                   </span>
 // //                   <span className="rounded-full bg-[#fff0e8] px-3 py-1 text-xs font-bold text-[#17233f]">
@@ -107,15 +107,15 @@
 // //                 <div className="mt-4 flex items-end gap-2">
 // //                   {product.discountPrice ? (
 // //                     <>
-// //                       <span className="text-2xl font-black text-[#178f95]">
+// //                       <span className="text-2xl font-black text-primary">
 // //                         Rs. {product.discountPrice}
 // //                       </span>
-// //                       <span className="pb-1 text-sm font-semibold text-slate-400 line-through">
+// //                       <span className="pb-1 text-sm font-semibold text-muted line-through">
 // //                         Rs. {product.price}
 // //                       </span>
 // //                     </>
 // //                   ) : (
-// //                     <span className="text-2xl font-black text-[#178f95]">
+// //                     <span className="text-2xl font-black text-primary">
 // //                       Rs. {product.price}
 // //                     </span>
 // //                   )}
@@ -186,12 +186,12 @@
 
 //   if (!products || products.length === 0) {
 //     return (
-//       <Card className="border-dashed border-[#178f95]/30 bg-[#f6fbfb] p-8 text-center">
-//         <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[#dff3f2] text-xl font-black text-[#178f95]">
+//       <Card className="border-dashed border-primary/30 bg-alt p-8 text-center">
+//         <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-alt text-xl font-black text-primary">
 //           +
 //         </div>
 //         <h3 className="mt-4 text-xl font-extrabold text-[#17233f]">No products yet</h3>
-//         <p className="mt-2 text-sm leading-6 text-slate-500">
+//         <p className="mt-2 text-sm leading-6 text-body">
 //           You haven&apos;t added any products yet. Click Add Product to create your first listing.
 //         </p>
 //       </Card>
@@ -212,7 +212,7 @@
 //       />
 
 //       {filteredProducts.length === 0 ? (
-//         <Card className="bg-[#f6fbfb] p-8 text-center text-sm font-semibold text-slate-500">
+//         <Card className="bg-alt p-8 text-center text-sm font-semibold text-body">
 //           No products match your search.
 //         </Card>
 //       ) : (
@@ -221,20 +221,20 @@
 //             <Card
 //               key={product._id}
 //               as="article"
-//               className="overflow-hidden bg-white transition hover:-translate-y-1 hover:shadow-lg"
+//               className="overflow-hidden bg-card transition hover:-translate-y-1 hover:shadow-lg"
 //             >
-//               <div className="relative h-44 w-full overflow-hidden bg-[#dff3f2]">
+//               <div className="relative h-44 w-full overflow-hidden bg-alt">
 //                 <ProductImageCard
 //                   product={product}
 //                   fallbackIcon="bag"
-//                   fallbackIconClassName="h-10 w-10 text-[#178f95]/50"
+//                   fallbackIconClassName="h-10 w-10 text-primary/50"
 //                   className="h-44 w-full object-cover"
 //                 />
 //               </div>
 
 //               <div className="p-5">
 //                 <div className="flex items-center justify-between gap-3">
-//                   <span className="rounded-full bg-[#dff3f2] px-3 py-1 text-xs font-bold capitalize text-[#178f95]">
+//                   <span className="rounded-full bg-alt px-3 py-1 text-xs font-bold capitalize text-primary">
 //                     {product.category}
 //                   </span>
 //                   <span className="rounded-full bg-[#fff0e8] px-3 py-1 text-xs font-bold text-[#17233f]">
@@ -249,15 +249,15 @@
 //                 <div className="mt-4 flex items-end gap-2">
 //                   {product.discountPrice ? (
 //                     <>
-//                       <span className="text-2xl font-black text-[#178f95]">
+//                       <span className="text-2xl font-black text-primary">
 //                         Rs. {product.discountPrice}
 //                       </span>
-//                       <span className="pb-1 text-sm font-semibold text-slate-400 line-through">
+//                       <span className="pb-1 text-sm font-semibold text-muted line-through">
 //                         Rs. {product.price}
 //                       </span>
 //                     </>
 //                   ) : (
-//                     <span className="text-2xl font-black text-[#178f95]">
+//                     <span className="text-2xl font-black text-primary">
 //                       Rs. {product.price}
 //                     </span>
 //                   )}
@@ -328,12 +328,12 @@ const ProductList = ({ products, onProductDeleted }) => {
 
   if (!products || products.length === 0) {
     return (
-      <Card className="border-dashed border-[#178f95]/30 bg-[#f6fbfb] p-8 text-center">
-        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[#dff3f2] text-xl font-black text-[#178f95]">
+      <Card className="border-dashed border-primary/30 bg-alt p-8 text-center">
+        <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-alt text-xl font-black text-primary">
           +
         </div>
         <h3 className="mt-4 text-xl font-extrabold text-[#17233f]">No products yet</h3>
-        <p className="mt-2 text-sm leading-6 text-slate-500">
+        <p className="mt-2 text-sm leading-6 text-body">
           You haven&apos;t added any products yet. Click Add Product to create your first listing.
         </p>
       </Card>
@@ -354,7 +354,7 @@ const ProductList = ({ products, onProductDeleted }) => {
       />
 
       {filteredProducts.length === 0 ? (
-        <Card className="bg-[#f6fbfb] p-8 text-center text-sm font-semibold text-slate-500">
+        <Card className="bg-alt p-8 text-center text-sm font-semibold text-body">
           No products match your search.
         </Card>
       ) : (
@@ -363,20 +363,20 @@ const ProductList = ({ products, onProductDeleted }) => {
             <Card
               key={product._id}
               as="article"
-              className="overflow-hidden bg-white transition hover:-translate-y-1 hover:shadow-lg"
+              className="overflow-hidden bg-card transition hover:-translate-y-1 hover:shadow-lg"
             >
-              <div className="relative h-44 w-full overflow-hidden bg-[#dff3f2]">
+              <div className="relative h-44 w-full overflow-hidden bg-alt">
                 <ProductImageCard
                   product={product}
                   fallbackIcon="bag"
-                  fallbackIconClassName="h-10 w-10 text-[#178f95]/50"
+                  fallbackIconClassName="h-10 w-10 text-primary/50"
                   className="h-44 w-full object-cover"
                 />
               </div>
 
               <div className="p-5">
                 <div className="flex items-center justify-between gap-3">
-                  <span className="rounded-full bg-[#dff3f2] px-3 py-1 text-xs font-bold capitalize text-[#178f95]">
+                  <span className="rounded-full bg-alt px-3 py-1 text-xs font-bold capitalize text-primary">
                     {product.category}
                   </span>
                   <span className="rounded-full bg-[#fff0e8] px-3 py-1 text-xs font-bold text-[#17233f]">
@@ -391,15 +391,15 @@ const ProductList = ({ products, onProductDeleted }) => {
                 <div className="mt-4 flex items-end gap-2">
                   {product.discountPrice ? (
                     <>
-                      <span className="text-2xl font-black text-[#178f95]">
+                      <span className="text-2xl font-black text-primary">
                         Rs. {product.discountPrice}
                       </span>
-                      <span className="pb-1 text-sm font-semibold text-slate-400 line-through">
+                      <span className="pb-1 text-sm font-semibold text-muted line-through">
                         Rs. {product.price}
                       </span>
                     </>
                   ) : (
-                    <span className="text-2xl font-black text-[#178f95]">
+                    <span className="text-2xl font-black text-primary">
                       Rs. {product.price}
                     </span>
                   )}

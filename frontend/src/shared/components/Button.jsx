@@ -1,10 +1,12 @@
 const variants = {
   primary:
-    "bg-[#0f766e] text-white shadow-lg shadow-[#0f766e]/20 hover:bg-[#115e59]",
+    "bg-primary text-white shadow-lg shadow-primary/20 hover:bg-primary-dark",
+  accent:
+    "bg-accent text-white shadow-lg shadow-accent/20 hover:bg-accent-dark",
   secondary:
-    "border border-[#0f766e]/25 bg-white text-[#0f766e] hover:bg-[#f0fdfa]",
+    "border border-primary/25 bg-card text-primary hover:bg-alt",
   danger: "bg-red-50 text-red-600 hover:bg-red-100",
-  ghost: "border border-slate-200 bg-white text-slate-600 hover:bg-slate-50",
+  ghost: "border border-border-main bg-card text-body hover:bg-page",
 };
 
 const sizes = {

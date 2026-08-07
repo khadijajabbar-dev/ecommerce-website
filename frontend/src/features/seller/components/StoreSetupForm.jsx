@@ -51,7 +51,7 @@ const StoreSetupForm = ({ onStoreCreated }) => {
           className="mb-6"
         />
 
-        <Card className="bg-white/92 p-6 backdrop-blur sm:p-8">
+        <Card className="bg-card/92 p-6 backdrop-blur sm:p-8">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
             <Alert variant="error">{error}</Alert>
 

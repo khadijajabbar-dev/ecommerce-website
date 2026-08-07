@@ -9,7 +9,7 @@ const ProductImageCard = ({
   alt,
   className = "h-full w-full object-cover",
   fallbackIcon = "bag",
-  fallbackIconClassName = "h-14 w-14 text-[#178f95]/40",
+  fallbackIconClassName = "h-14 w-14 text-primary/40",
 }) => {
   const [current, setCurrent] = useState(0);
 
@@ -55,7 +55,7 @@ const ProductImageCard = ({
             type="button"
             onClick={goPrev}
             aria-label="Previous image"
-            className="absolute left-1.5 top-1/2 z-10 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full bg-white text-slate-600 shadow-md transition hover:bg-slate-50 hover:text-slate-900"
+            className="absolute left-1.5 top-1/2 z-10 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full bg-card text-body shadow-md transition hover:bg-page hover:text-heading"
           >
             <span className="text-sm font-bold leading-none">‹</span>
           </button>
@@ -63,7 +63,7 @@ const ProductImageCard = ({
             type="button"
             onClick={goNext}
             aria-label="Next image"
-            className="absolute right-1.5 top-1/2 z-10 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full bg-white text-slate-600 shadow-md transition hover:bg-slate-50 hover:text-slate-900"
+            className="absolute right-1.5 top-1/2 z-10 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full bg-card text-body shadow-md transition hover:bg-page hover:text-heading"
           >
             <span className="text-sm font-bold leading-none">›</span>
           </button>
@@ -80,7 +80,7 @@ const ProductImageCard = ({
                 }}
                 aria-label={`Go to image ${i + 1}`}
                 className={`h-1.5 rounded-full shadow transition-all duration-300 ${
-                  i === current ? "w-4 bg-[#0f766e]" : "w-1.5 bg-white/80 hover:bg-white"
+                  i === current ? "w-4 bg-primary" : "w-1.5 bg-card/80 hover:bg-card"
                 }`}
               />
             ))}

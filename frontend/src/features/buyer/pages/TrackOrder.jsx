@@ -48,7 +48,7 @@ const TrackOrder = () => {
         <Navbar badge="B" panel="Buyer Panel" title="Track Order" />
 
         {loading ? (
-          <Card className="mt-6 p-8 text-center text-sm font-semibold text-slate-500">
+          <Card className="mt-6 p-8 text-center text-sm font-semibold text-body">
             Loading order...
           </Card>
         ) : error ? (
@@ -62,17 +62,17 @@ const TrackOrder = () => {
                 <img
                   src={order.productImage}
                   alt={order.productTitle}
-                  className="h-20 w-20 rounded-xl object-cover bg-[#dff3f2]"
+                  className="h-20 w-20 rounded-xl object-cover bg-alt"
                 />
               ) : (
-                <div className="flex h-20 w-20 items-center justify-center rounded-xl bg-[#dff3f2] text-xs font-bold text-[#178f95]">
+                <div className="flex h-20 w-20 items-center justify-center rounded-xl bg-alt text-xs font-bold text-primary">
                   No Image
                 </div>
               )}
               <div>
                 <h3 className="font-extrabold">{order.productTitle}</h3>
-                <p className="mt-1 text-sm text-slate-500">
-                  Qty: {order.quantity} · Total: <span className="font-bold text-[#178f95]">Rs. {order.totalAmount}</span>
+                <p className="mt-1 text-sm text-body">
+                  Qty: {order.quantity} · Total: <span className="font-bold text-primary">Rs. {order.totalAmount}</span>
                 </p>
               </div>
             </Card>
@@ -89,7 +89,7 @@ const TrackOrder = () => {
                         <div className="flex w-full items-center">
                           <div
                             className={`mx-auto flex h-10 w-10 items-center justify-center rounded-full text-sm font-black ${
-                              reached ? "bg-[#178f95] text-white" : "bg-slate-100 text-slate-400"
+                              reached ? "bg-primary text-white" : "bg-alt text-muted"
                             }`}
                           >
                             {index + 1}
@@ -97,7 +97,7 @@ const TrackOrder = () => {
                         </div>
                         <p
                           className={`mt-2 text-xs font-bold ${
-                            reached ? "text-[#178f95]" : "text-slate-400"
+                            reached ? "text-primary" : "text-muted"
                           }`}
                         >
                           {step.label}
@@ -105,7 +105,7 @@ const TrackOrder = () => {
                         {index < STEPS.length - 1 && (
                           <div
                             className={`mt-[-32px] ml-[calc(50%+20px)] h-0.5 w-[calc(100%-40px)] ${
-                              index < currentStep ? "bg-[#178f95]" : "bg-slate-100"
+                              index < currentStep ? "bg-primary" : "bg-alt"
                             }`}
                           />
                         )}
@@ -115,7 +115,7 @@ const TrackOrder = () => {
                 </div>
               )}
 
-              <div className="mt-8 grid gap-2 rounded-2xl bg-[#f6fbfb] p-4 text-sm text-slate-600">
+              <div className="mt-8 grid gap-2 rounded-2xl bg-alt p-4 text-sm text-body">
                 <p>
                   <span className="font-semibold text-[#17233f]">Shipping Address:</span>{" "}
                   {order.shippingAddress}

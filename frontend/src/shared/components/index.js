@@ -16,3 +16,4 @@ export { default as PublicNavbar } from "./PublicNavbar";
 export { default as SearchBar } from "./SearchBar";
 export { default as EditableField } from "./EditableField";
 export { default as Badge } from "./Badge";
+export { default as ScrollToTop } from "./ScrollToTop";

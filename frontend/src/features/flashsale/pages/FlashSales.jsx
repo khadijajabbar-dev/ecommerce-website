@@ -80,7 +80,7 @@ const FlashSalesPage = () => {
         <span className="pointer-events-none absolute -right-10 -top-16 h-56 w-56 rounded-full bg-card/10" />
         <span className="pointer-events-none absolute -bottom-20 left-10 h-40 w-40 rounded-full bg-card/10" />
 
-        <div className="relative mx-auto grid w-full max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.2fr_0.8fr] lg:px-8">
+        <div className="relative mx-auto grid w-full max-w-7xl items-center gap-10 px-4 py-8 sm:px-6 lg:grid-cols-[1.2fr_0.8fr] lg:px-8 lg:py-10">
           <div>
             <span className="inline-flex items-center gap-2 rounded-full bg-card px-4 py-1.5 text-xs font-extrabold uppercase tracking-wide text-primary shadow-sm">
               <Icon name="bolt" className="h-3.5 w-3.5 fill-primary" />
@@ -104,11 +104,11 @@ const FlashSalesPage = () => {
             )}
           </div>
           
-          <div className="hidden lg:flex justify-end items-center">
+          <div className="hidden lg:flex justify-end items-center h-full">
             <img 
-              src="/flash-sales-banner.png" 
+              src="/flash-sales-hero-img.png" 
               alt="Flash Sales" 
-              className="w-full max-w-[380px] h-auto object-contain drop-shadow-2xl hover:-translate-y-2 transition-transform duration-500"
+              className="w-full max-w-[550px] h-full max-h-[350px] object-contain drop-shadow-2xl hover:-translate-y-2 transition-transform duration-500"
             />
           </div>
         </div>

@@ -4,19 +4,19 @@ import { Icon } from "../../../shared/components";
 const ContactHero = () => {
   return (
     <section className="overflow-hidden bg-primary">
-      <div className="mx-auto grid w-full max-w-7xl items-center gap-10 px-4 py-10 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-14">
+      <div className="mx-auto grid w-full max-w-7xl items-center gap-10 px-4 py-6 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-6">
         <div className="max-w-2xl">
           <span className="inline-flex rounded-xl bg-card px-4 py-2 text-sm font-extrabold text-primary shadow-sm">
             Contact Easy Mart
           </span>
-          <h1 className="mt-5 text-4xl font-black leading-[1.1] tracking-normal text-white sm:text-5xl lg:text-6xl">
+          <h1 className="mt-4 text-4xl font-black leading-[1.1] tracking-normal text-white sm:text-5xl">
             We&apos;re here to help you shop with confidence.
           </h1>
-          <p className="mt-5 max-w-xl text-lg leading-8 text-white/90">
+          <p className="mt-4 max-w-xl text-base leading-7 text-white/90">
             Our friendly support team is ready to assist you with orders,
             returns, products, and any questions you have.
           </p>
-          <div className="mt-7 flex flex-col gap-4 sm:flex-row">
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <a
               href="#contact-form"
               className="inline-flex h-12 items-center justify-center gap-3 rounded-xl bg-primary px-8 text-sm font-extrabold text-white shadow-lg shadow-primary/20 transition hover:-translate-y-0.5 hover:bg-primary"
@@ -34,11 +34,11 @@ const ContactHero = () => {
           </div>
         </div>
 
-        <div className="relative flex justify-center items-center h-full min-h-[340px] sm:min-h-[420px]">
+        <div className="relative flex justify-end items-center h-full">
           <img 
-            src="/contact-banner.png" 
+            src="/contact-hero-img.png" 
             alt="Customer Support" 
-            className="w-full max-w-[450px] h-auto object-contain drop-shadow-2xl hover:-translate-y-2 transition-transform duration-500"
+            className="w-full max-w-[550px] h-full max-h-[350px] object-contain drop-shadow-2xl hover:-translate-y-2 transition-transform duration-500"
           />
         </div>
       </div>

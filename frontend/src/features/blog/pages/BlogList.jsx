@@ -47,7 +47,7 @@ const BlogList = () => {
       <PublicNavbar activePage="Blog" />
 
       <section className="bg-primary">
-        <div className="mx-auto grid w-full max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_1fr] lg:px-8">
+        <div className="mx-auto grid w-full max-w-7xl items-center gap-10 px-4 py-8 sm:px-6 lg:grid-cols-[1fr_1fr] lg:px-8 lg:py-10">
           <div>
             <span className="inline-flex rounded-xl bg-card px-4 py-2 text-sm font-extrabold text-primary shadow-sm">
               Easy Mart Blog
@@ -56,11 +56,11 @@ const BlogList = () => {
               Stories, guides & updates from our sellers.
             </h1>
           </div>
-          <div className="hidden lg:flex justify-end items-center">
+          <div className="hidden lg:flex justify-end items-center h-full">
             <img 
-              src="/blog-banner.png" 
+              src="/blog-hero-img.png" 
               alt="Blog" 
-              className="w-full max-w-[400px] h-auto object-contain drop-shadow-2xl hover:-translate-y-2 transition-transform duration-500"
+              className="w-full max-w-[550px] h-full max-h-[350px] object-contain drop-shadow-2xl hover:-translate-y-2 transition-transform duration-500"
             />
           </div>
         </div>

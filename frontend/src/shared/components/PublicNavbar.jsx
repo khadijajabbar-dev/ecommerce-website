@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import Icon from "./Icon";
 import { getAllProductsAPI } from "../../api/product.api";
 import cartService from "../../features/buyer/services/cart.service";
@@ -27,6 +28,34 @@ const PublicNavbar = ({ activePage = "Home" }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const profileRef = useRef(null);
   const pagesRef = useRef(null);
+
+  const { scrollY } = useScroll();
+  const [navState, setNavState] = useState(activePage === "Home" ? "absolute" : "fixed");
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    if (activePage !== "Home") {
+      if (navState !== "fixed") setNavState("fixed");
+      return;
+    }
+    
+    // On Home page, hide navbar while scrolling the 900vh hero section, 
+    // then reveal it as sticky afterwards.
+    const heroHeight = window.innerHeight * 9; 
+    
+    if (latest < 100) {
+      setNavState("absolute");
+    } else if (latest >= 100 && latest < heroHeight - 300) {
+      setNavState("hidden");
+    } else {
+      setNavState("fixed");
+    }
+  });
+
+  const navVariants = {
+    absolute: { position: "absolute", y: 0, opacity: 1 },
+    hidden: { position: "fixed", y: "-150%", opacity: 0, transition: { duration: 0.3 } },
+    fixed: { position: "fixed", y: 0, opacity: 1, transition: { duration: 0.4, ease: "easeOut" } }
+  };
 
   useEffect(() => {
     const syncAuth = () => {
@@ -130,7 +159,12 @@ const PublicNavbar = ({ activePage = "Home" }) => {
   };
 
   return (
-    <header className="absolute top-4 w-full px-4 sm:px-6 lg:px-8 z-50 pointer-events-none">
+    <motion.header 
+      initial={activePage === "Home" ? "absolute" : "fixed"}
+      animate={navState}
+      variants={navVariants}
+      className="top-4 w-full px-4 sm:px-6 lg:px-8 z-50 pointer-events-none"
+    >
       <div className="mx-auto max-w-7xl pointer-events-auto">
         <div className="relative overflow-hidden rounded-[32px] bg-white shadow-[0_8px_40px_rgb(0,0,0,0.08)] border border-gray-100 p-4 sm:p-6 lg:px-8 lg:py-6">
           
@@ -328,7 +362,7 @@ const PublicNavbar = ({ activePage = "Home" }) => {
           </div>
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 };
 
